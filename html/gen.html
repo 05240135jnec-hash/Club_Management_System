@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JNEC Club Directory — Student</title>
+<link rel="stylesheet" href="../css/gen.css"/>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- NAVBAR -->
+<nav class="nav" id="main-nav">
+  <div class="nav-left">
+    <div class="nav-logo">
+      <img src="../image/logo-removebg-preview.png" alt="JNEC Logo"/>
+    </div>
+    <span class="nav-brand">JNEC Clubs</span>
+    <div class="nav-fixed-links">
+      <button class="nfl" onclick="scrollToSection('about-section')">Announcements</button>
+      <button class="nfl" onclick="scrollToSection('about-section')">About us</button>
+    </div>
+  </div>
+
+  <!-- DYNAMIC CATEGORY DROPDOWNS -->
+  <div class="nav-cats" id="nav-cats"></div>
+
+  <!-- MOBILE CENTER SEARCH -->
+  <div class="nav-mobile-search">
+    <span style="color:rgba(255,255,255,.35);font-size:15px;">⌕</span>
+    <input type="text" id="nav-mobile-search-input" placeholder="Search clubs..."
+      oninput="doSearch(this.value)" onkeydown="handleSearchEnter(event)"/>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-search">
+      <span style="color:rgba(255,255,255,.35);font-size:15px;">⌕</span>
+      <input type="text" id="nav-search-input" placeholder="Search clubs..."
+        oninput="doSearch(this.value)" onkeydown="handleSearchEnter(event)"/>
+    </div>
+    <button class="logout-btn" onclick="window.location.href='login.html'">Log out</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+    <div class="mobile-nav-links">
+      <button class="mobile-nfl" onclick="scrollToSection('about-section');closeMobileMenu()">Announcements</button>
+      <button class="mobile-nfl" onclick="scrollToSection('about-section');closeMobileMenu()">About us</button>
+      <button class="mobile-nfl" onclick="scrollToSection('clubs-section');closeMobileMenu()">Browse Clubs</button>
+    </div>
+    <div class="mobile-cats-title">Categories</div>
+    <div class="mobile-cats" id="mobile-cats"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-slide hero-slide-1 active" id="slide1"></div>
+  <div class="hero-slide hero-slide-2" id="slide2"></div>
+  <div class="hero-slide hero-slide-3" id="slide3"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1><span id="typewriter"></span></h1>
+    <p class="hero-sub">Discover, explore and join clubs that match your interests — sports, arts, service, technology and more.</p>
+    <div class="hero-btns">
+      <button class="btn-browse ripple-btn" onclick="scrollToSection('clubs-section')">Browse all clubs</button>
+    </div>
+    <div class="stats-bar">
+      <div class="sb"><div class="sb-n" id="stat-clubs">0</div><div class="sb-l">Total Clubs</div></div>
+      <div class="sb"><div class="sb-n">500+</div><div class="sb-l">Members</div></div>
+      <div class="sb"><div class="sb-n" id="stat-cats">0</div><div class="sb-l">Categories</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- MY CLUBS -->
+  <div class="myclub-section" id="myclub-section">
+    <div class="clubs-top">
+      <div class="sec-title">My clubs</div>
+    </div>
+    <div class="myclub-cards-row" id="myclub-cards-row"></div>
+    <div class="myclub-empty-hint" id="myclub-empty-hint">
+      Browse clubs below and click <strong>Join Club</strong> to enroll with your enrollment key.
+    </div>
+  </div>
+
+  <!-- ALL CLUBS -->
+  <div id="clubs-section" class="clubs-section">
+    <div class="clubs-top">
+      <div class="sec-title">All clubs</div>
+    </div>
+    <div class="clubs-controls">
+      <div class="pill-row" id="pill-row"></div>
+    </div>
+    <div class="clubs-grid" id="clubs-grid"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about-section" class="about-section">
+    <div class="about-eyebrow">Learn more about this platform and how it works</div>
+    <div class="about-main-title">About JNEC Club Directory</div>
+    <div class="about-dark">
+      <div class="about-dark-bg"></div>
+      <div class="about-dark-overlay"></div>
+      <div class="about-dark-content">
+        <h2>Bringing JNEC students<br>together through <em>Clubs</em></h2>
+        <p>A central platform for students and advisors to discover, create, and manage clubs at Jigme Namgyel Engineering College, Dewathang, Samdrup Jongkhar.</p>
+      </div>
+    </div>
+    <div class="about-cards">
+      <div class="about-card fade-in-card">
+        <div class="ac-ico"></div>
+        <div class="ac-title">Who we are</div>
+        <div class="ac-text">The JNEC Club Directory is the official platform for all student clubs at Jigme Namgyel Engineering College. It connects students with clubs that match their interests and passions.</div>
+      </div>
+      <div class="about-card fade-in-card">
+        <div class="ac-ico"></div>
+        <div class="ac-title">Our mission</div>
+        <div class="ac-text">To foster a vibrant campus community by making it easy for students to find their place, and for advisors to build and grow meaningful clubs across all categories.</div>
+      </div>
+    </div>
+    <div class="steps-row">
+      <div class="step-card fade-in-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Browse clubs</div>
+        <div class="step-text">Filter by category to find clubs that match your interests — sports, technology, arts, volunteering and more.</div>
+      </div>
+      <div class="step-card fade-in-card">
+        <div class="step-num">2</div>
+        <div class="step-title">View details</div>
+        <div class="step-text">Click any club to see its full profile — aim, objectives, description, advisor, and current members.</div>
+      </div>
+      <div class="step-card fade-in-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Join a club</div>
+        <div class="step-text">Click Join Club and enter the enrollment key provided by your club advisor to become a member.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span class="ft-l">© 2025 JNEC Club Directory</span>
+  <span class="ft-r">Jigme Namgyel Engineering College</span>
+</footer>
+
+<!-- CLUB DETAIL MODAL -->
+<div class="overlay" id="club-overlay">
+  <div class="modal-box">
+    <div class="modal-inner">
+      <div class="modal-top-row">
+        <div class="modal-club-name" id="m-name"></div>
+        <button class="modal-x" onclick="closeClubModal()">✕</button>
+      </div>
+      <div class="modal-cat-label">Category: <span id="m-cat"></span></div>
+      <div class="mdiv"></div>
+      <div style="margin-bottom:1.25rem;">
+        <div class="modal-sec-label">Aim</div>
+        <div class="modal-sec-val" id="m-aim"></div>
+      </div>
+      <div class="mdiv"></div>
+      <div style="margin-bottom:1.25rem;">
+        <div class="modal-sec-label">Objectives</div>
+        <div id="m-objs"></div>
+      </div>
+      <div class="mdiv"></div>
+      <div style="margin-bottom:1.5rem;">
+        <div class="modal-sec-label">Description</div>
+        <div class="modal-sec-val" id="m-desc"></div>
+      </div>
+      <div class="modal-bottom">
+        <div class="mbb"><div class="mbb-label">Members</div><div class="mbb-val" id="m-mem"></div></div>
+        <div class="modal-bottom-div"></div>
+        <div class="mbb"><div class="mbb-label">Club Advisor</div><div class="mbb-val" id="m-adv"></div></div>
+        <div class="modal-bottom-div"></div>
+        <div class="mbb"><div class="mbb-label">Club Secretary</div><div class="mbb-val" id="m-sec"></div></div>
+      </div>
+      <div class="modal-join-wrap">
+        <button class="modal-join-btn ripple-btn" id="modal-join-btn" onclick="openEnrollModal()">Join Club</button>
+        <span class="modal-joined-badge" id="modal-joined-badge" style="display:none;">✓ Already Joined</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENROLLMENT KEY MODAL -->
+<div class="enroll-overlay" id="enroll-overlay">
+  <div class="enroll-modal">
+    <div class="enroll-top">
+      <div>
+        <div class="enroll-title">Enter Enrollment Key</div>
+        <div class="enroll-subtitle">Enter the key provided by your club advisor to join <strong id="enroll-club-name"></strong>.</div>
+      </div>
+      <button class="modal-x enroll-x" onclick="closeEnrollModal()">✕</button>
+    </div>
+    <div class="enroll-body">
+      <div class="enroll-field">
+        <label>Enrollment Key</label>
+        <div class="enroll-key-wrap">
+          <input type="password" id="enroll-key-input" class="enroll-key-input"
+            placeholder="e.g. CLUB2025" autocomplete="off"
+            onkeydown="if(event.key==='Enter')submitEnrollment()"/>
+          <button class="enroll-eye-btn" id="enroll-eye-btn" type="button"
+            onclick="toggleKeyVisibility()">👁</button>
+        </div>
+        <div class="enroll-hint">The key is displayed on the notice board or provided by your advisor.</div>
+        <div class="enroll-error" id="enroll-error" style="display:none;"></div>
+      </div>
+    </div>
+    <div class="enroll-footer">
+      <button class="enroll-cancel-btn" onclick="closeEnrollModal()">Cancel</button>
+      <button class="enroll-submit-btn ripple-btn" onclick="submitEnrollment()">Enroll Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="../js/gen.js"></script>
+</body>
+</html>

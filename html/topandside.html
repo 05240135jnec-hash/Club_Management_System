@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar + Topbar – JNEC Club Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .app-wrapper { display: flex; width: 100%; min-height: 100vh; }
+
+    /* ══════════════════════════════
+       SIDEBAR
+    ══════════════════════════════ */
+    .sidebar {
+      width: 200px;
+      min-width: 200px;
+      background: #172D3D;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      z-index: 100;
+    }
+
+    /* Brand */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .brand-avatar {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: #2d5be3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #fff;
+      flex-shrink: 0; letter-spacing: 0.5px;
+    }
+
+    .brand-text { display: flex; flex-direction: column; }
+
+    .brand-name {
+      font-size: 12px; font-weight: 700;
+      color: #ffffff; line-height: 1.3;
+    }
+
+    .brand-sub {
+      font-size: 10px; font-weight: 400;
+      color: #6b7f93; margin-top: 3px;
+    }
+
+    /* Nav Groups */
+    .nav-group { padding: 20px 0 0; }
+
+    .nav-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding: 0 16px 10px 16px;
+      line-height: 15px;
+      opacity: 0.9;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #7a8fa0;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-item svg {
+      width: 16px; height: 16px;
+      flex-shrink: 0; opacity: 0.65;
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.06);
+      color: #c8d8e4;
+    }
+    .nav-item:hover svg { opacity: 0.9; }
+
+    .nav-item.active {
+      background: #1e3d52;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: #2d5be3;
+      border-radius: 0 2px 2px 0;
+    }
+    .nav-item.active svg { opacity: 1; }
+
+    /* ══════════════════════════════
+       MAIN CONTENT AREA
+    ══════════════════════════════ */
+    .main-content {
+      margin-left: 200px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #f0f2f5;
+    }
+
+    /* ══════════════════════════════
+       TOP BAR
+    ══════════════════════════════ */
+    .topbar {
+      height: 65px;
+      background: #fff;
+      border-bottom: 1px solid #e8eaf0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .topbar-left { display: flex; flex-direction: column; }
+    .topbar-title    { font-size: 18px; font-weight: 700; color: #1a1a2e; line-height: 1.2; }
+    .topbar-subtitle { font-size: 11px; color: #8892a4; margin-top: 1px; }
+
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+    .icon-btn {
+      position: relative;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #f0f2f5;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+      color: #4a5568;
+    }
+    .icon-btn:hover { background: #e2e6ef; color: #1a1a2e; }
+    .icon-btn svg { width: 18px; height: 18px; }
+
+    .notif-badge {
+      position: absolute;
+      top: 6px; right: 6px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #e53e3e;
+      border: 1.5px solid #fff;
+    }
+
+    .profile-btn {
+      display: flex; align-items: center; gap: 8px;
+      background: #f0f2f5;
+      border: none;
+      border-radius: 24px;
+      padding: 5px 12px 5px 5px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .profile-btn:hover { background: #e2e6ef; }
+
+    .profile-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #2d5be3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #fff;
+    }
+
+    .profile-name { font-size: 12.5px; font-weight: 600; color: #1a1a2e; }
+
+    /* Demo content placeholder */
+    .page-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .placeholder {
+      text-align: center;
+      color: #8892a4;
+      font-size: 14px;
+    }
+    .placeholder strong { display: block; font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- ══════════════════════════════
+       SIDEBAR
+  ══════════════════════════════ -->
+  <aside class="sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <div class="brand-avatar">JN</div>
+      <div class="brand-text">
+        <span class="brand-name">JNEC Club<br>Management</span>
+        <span class="brand-sub">Super Admin Panel</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <nav class="nav-group">
+      <div class="nav-group-label">Overview</div>
+
+      <a href="#" class="nav-item active" data-page="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        Dashboard
+      </a>
+
+      <a href="#" class="nav-item" data-page="feature-control">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+          <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+          <line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/>
+          <line x1="17" y1="16" x2="23" y2="16"/>
+        </svg>
+        Feature control
+      </a>
+    </nav>
+
+    <!-- Management -->
+    <nav class="nav-group">
+      <div class="nav-group-label">Management</div>
+
+      <a href="#" class="nav-item" data-page="all-club">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        All club
+      </a>
+
+      <a href="#" class="nav-item" data-page="reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Submitted Reports
+      </a>
+    </nav>
+
+    <!-- System -->
+    <nav class="nav-group">
+      <div class="nav-group-label">System</div>
+
+      <a href="#" class="nav-item" data-page="announcements">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        Announcements
+      </a>
+
+      <a href="#" class="nav-item" data-page="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        Settings
+      </a>
+    </nav>
+
+  </aside>
+  <!-- end sidebar -->
+
+
+  <!-- ══════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-title" id="topbar-title">Dashboard</span>
+        <span class="topbar-subtitle" id="topbar-subtitle">Club overview</span>
+      </div>
+
+      <div class="topbar-right">
+
+        <!-- Notification Bell -->
+        <button class="icon-btn" title="Notifications" id="notif-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-badge" id="notif-badge"></span>
+        </button>
+
+        <!-- Profile -->
+        <button class="profile-btn" title="Profile" id="profile-btn">
+          <div class="profile-avatar">YD</div>
+          <span class="profile-name">Yoesel</span>
+        </button>
+
+      </div>
+    </header>
+    <!-- end topbar -->
+
+    <!-- Page body placeholder -->
+    <div class="page-body">
+      <div class="placeholder">
+        <strong>Your page content goes here</strong>
+        Sidebar and Topbar are ready to use.
+      </div>
+    </div>
+
+  </div>
+  <!-- end main-content -->
+
+</div>
+
+<script>
+  'use strict';
+
+  var PAGE_META = {
+    'dashboard':       { title: 'Dashboard',        subtitle: 'Club overview' },
+    'feature-control': { title: 'Feature Control',  subtitle: 'Manage platform features' },
+    'all-club':        { title: 'All Clubs',         subtitle: 'Browse and manage clubs' },
+    'reports':         { title: 'Submitted Reports', subtitle: 'View all submitted reports' },
+    'announcements':   { title: 'Announcements',     subtitle: 'System announcements' },
+    'settings':        { title: 'Settings',          subtitle: 'Application settings' }
+  };
+
+  var topbarTitle    = document.getElementById('topbar-title');
+  var topbarSubtitle = document.getElementById('topbar-subtitle');
+  var notifBadge     = document.getElementById('notif-badge');
+  var navItems       = document.querySelectorAll('.nav-item');
+
+  /* Navigation */
+  navItems.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      navItems.forEach(function(n) { n.classList.remove('active'); });
+      item.classList.add('active');
+      var p = item.dataset.page;
+      var m = PAGE_META[p] || PAGE_META['dashboard'];
+      topbarTitle.textContent    = m.title;
+      topbarSubtitle.textContent = m.subtitle;
+    });
+  });
+
+  /* Show notification badge on load */
+  document.addEventListener('DOMContentLoaded', function() {
+    if (notifBadge) notifBadge.style.display = 'block';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUB GuestHouse | Booking Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/adminbook.css">
+</head>
+<body>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<div class="admin-wrapper">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">R</div>
+      <div class="brand-text">
+        <span class="brand-name">RUB GuestHouse</span>
+        <span class="brand-sub">Admin Panel</span>
+      </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="navigatePage('bookings', this)">
+        <span>Bookings</span>
+        <span class="nav-badge" id="pendingBadge">0</span>
+      </div>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <div class="admin-info">
+        <div class="admin-avatar">AD</div>
+        <div class="admin-details">
+          <p>Admin User</p>
+          <span>Super Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <h1 id="pageTitle">Booking Management</h1>
+        <p id="pageSubtitle">Review, approve and manage all guest bookings</p>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-date" id="topbarDate"></div>
+      </div>
+    </header>
+
+    <!-- Bookings Page -->
+    <div class="admin-page active" id="page-bookings">
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-value" id="b-checkin">0</span>
+            <span class="stat-label">Today's Check-ins</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-value" id="b-pending">0</span>
+            <span class="stat-label">Pending Review</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-value" id="b-week">0</span>
+            <span class="stat-label">This Week</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-value" id="b-revenue">0</span>
+            <span class="stat-label">Expected Revenue</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <button class="tab-btn active" onclick="switchBookingTab('all', this)">All <span class="tab-count" id="cnt-all">0</span></button>
+        <button class="tab-btn" onclick="switchBookingTab('pending', this)">Pending <span class="tab-count" id="cnt-pending">0</span></button>
+        <button class="tab-btn" onclick="switchBookingTab('approved', this)">Approved <span class="tab-count" id="cnt-approved">0</span></button>
+        <button class="tab-btn" onclick="switchBookingTab('rejected', this)">Rejected <span class="tab-count" id="cnt-rejected">0</span></button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-row">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by name, booking ID or ID number..." oninput="renderBookingsList()">
+        </div>
+        <select id="roomFilter" class="filter-select" onchange="renderBookingsList()">
+          <option value="">All Rooms</option>
+        </select>
+        <select id="typeFilter" class="filter-select" onchange="renderBookingsList()">
+          <option value="">All Guest Types</option>
+          <option value="rub">RUB Student/Staff</option>
+          <option value="outside">Outside RUB</option>
+          <option value="international">International</option>
+        </select>
+      </div>
+
+      <!-- Bookings List -->
+      <div class="bookings-list" id="bookingsList"></div>
+    </div>
+  </main>
+</div>
+
+<!-- Booking Detail Modal -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3 id="modalTitle">Booking Details</h3>
+      <button class="modal-close" onclick="closeBookingModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<script src="../js/adminbook.js"></script>
+</body>
+</html>

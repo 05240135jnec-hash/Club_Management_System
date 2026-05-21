@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Plan – JNEC Club</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/workplan.css" />
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- ══════════════════════════════════════
+       SIDEBAR  (from JNEC sidebar/topbar reference)
+  ══════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <div class="brand-avatar">
+        <img src="../image/Logo.png" alt="JNEC Logo" />
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">JNEC Club<br>Management</span>
+        <span class="brand-sub">Student Panel</span>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <nav class="nav-group">
+      <div class="nav-group-label">Main</div>
+
+      <a href="dashboard.html" class="nav-item" data-page="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        Dashboard
+      </a>
+    </nav>
+
+    <!-- CLUB ACTIVITY -->
+    <nav class="nav-group">
+      <div class="nav-group-label">Club Activity</div>
+
+      <a href="announcement.html" class="nav-item" data-page="announcements">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        Announcements
+      </a>
+
+      <a href="attendance.html" class="nav-item" data-page="attendance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <path d="M9 16l2 2 4-4"/>
+        </svg>
+        My Attendance
+      </a>
+    </nav>
+
+    <!-- CLUB CONTENT -->
+    <nav class="nav-group">
+      <div class="nav-group-label">Club Content</div>
+
+      <a href="workplan.html" class="nav-item active" data-page="workplus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="11" x2="12" y2="17"/>
+          <line x1="9" y1="14" x2="15" y2="14"/>
+        </svg>
+        Work Plan
+      </a>
+
+      <a href="gallery.html" class="nav-item" data-page="gallery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Gallery
+      </a>
+
+      <a href="blog.html" class="nav-item" data-page="blog">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+  </svg>
+  Club Blog
+</a>
+    </nav>
+
+  </aside>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="topbar-left">
+        <span class="topbar-title">Work Plans</span>
+        <span class="topbar-subtitle">Browse and download your club's semester work plans</span>
+      </div>
+
+      <div class="topbar-right">
+
+        <!-- ── My Club Link (added from attendance page) ── -->
+        <a href="../html/generalpage.html" class="my-club-link" title="Go to My Club">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>My Club</span>
+        </a>
+
+        <!-- Notification Bell -->
+        <button class="icon-btn" title="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </button>
+
+        <!-- Profile -->
+        <button class="profile-btn" title="Profile">
+          <div class="profile-avatar">JL</div>
+          <span class="profile-name">Jigme</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- PAGE BODY -->
+    <div class="page-body">
+
+      <!-- ── Toolbar: Search + Semester Filters ── -->
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            id="search-input"
+            class="search-input"
+            type="text"
+            placeholder="Search work plans…"
+            autocomplete="off"
+          />
+          <button class="search-clear" id="search-clear" aria-label="Clear search">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="Semester 1">Sem 1</button>
+          <button class="filter-chip" data-filter="Semester 2">Sem 2</button>
+          <button class="filter-chip" data-filter="Semester 3">Sem 3</button>
+          <button class="filter-chip" data-filter="Semester 4">Sem 4</button>
+        </div>
+      </div>
+
+      <!-- Plan list – rendered by workplan.js -->
+      <div id="plan-list" class="plan-list"></div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="empty-state" style="display:none;">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <h3>No plans found</h3>
+        <p>Try adjusting your search or filter.</p>
+        <button class="btn-reset" onclick="resetFilters()">Clear filters</button>
+      </div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+
+</div><!-- /app-wrapper -->
+
+<!-- Mobile sidebar overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- ── PDF Viewer Modal ── -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <div class="modal-title-wrap">
+        <span class="modal-pdf-badge">PDF</span>
+        <span class="modal-title" id="modal-title">Work Plan</span>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-download-btn" id="modal-download-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </button>
+        <button class="modal-close" id="modal-close" aria-label="Close">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="pdf-loading" id="pdf-loading">
+        <div class="spinner"></div>
+        <span>Loading document…</span>
+      </div>
+      <iframe id="pdf-iframe" class="pdf-iframe" title="PDF Viewer"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="../js/workplan.js"></script>
+</body>
+</html>
