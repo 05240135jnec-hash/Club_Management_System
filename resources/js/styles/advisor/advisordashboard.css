@@ -1,0 +1,155 @@
+/* ============================================================
+   JNEC – Advisor Club Dashboard
+   File: advisordashboard.css
+   ============================================================ */
+
+/* ══ STAT CARDS ═════════════════════════════════════════════ */
+.adb-stat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.adb-stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: adbFadeIn 0.35s ease both;
+}
+.adb-stat-card:nth-child(1) { animation-delay: 0.05s; }
+.adb-stat-card:nth-child(2) { animation-delay: 0.10s; }
+.adb-stat-card:nth-child(3) { animation-delay: 0.15s; }
+.adb-stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+
+.adb-stat-icon {
+  width: 50px; height: 50px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.adb-stat-icon svg { width: 22px; height: 22px; }
+
+.adb-stat-members    .adb-stat-icon { background: #eef1fd; color: #2d5be3; }
+.adb-stat-attendance .adb-stat-icon { background: #f0fdf4; color: #16a34a; }
+.adb-stat-announcements .adb-stat-icon { background: #f5f3ff; color: #7c3aed; }
+
+.adb-stat-info { display: flex; flex-direction: column; gap: 4px; }
+
+.adb-stat-label {
+  font-size: 12px; font-weight: 500;
+  color: #8892a4; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.adb-stat-value {
+  font-size: 28px; font-weight: 800;
+  color: #1a1a2e; line-height: 1.1; letter-spacing: -0.5px;
+}
+
+/* ══ MAIN GRID ═══════════════════════════════════════════════ */
+.adb-grid {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 18px;
+}
+
+/* ══ CARDS ═══════════════════════════════════════════════════ */
+.adb-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: adbFadeIn 0.4s ease both;
+}
+.adb-chart-card { animation-delay: 0.2s; }
+.adb-ann-card   { animation-delay: 0.25s; }
+
+.adb-card-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px;
+}
+.adb-card-title    { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.adb-card-subtitle { font-size: 12px; color: #8892a4; margin-top: 3px; }
+
+/* ══ CHART ═══════════════════════════════════════════════════ */
+.adb-chart-legend {
+  display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+}
+.adb-legend-dot {
+  width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+}
+.adb-legend-dot.present { background: #2d5be3; }
+.adb-legend-dot.absent  { background: #e2e6ef; }
+.adb-legend-text { font-size: 12px; color: #8892a4; }
+
+.adb-chart-container {
+  position: relative; flex: 1; min-height: 260px;
+}
+
+/* ══ ANNOUNCEMENTS ═══════════════════════════════════════════ */
+.adb-ann-list {
+  display: flex; flex-direction: column; gap: 0;
+  overflow-y: auto; flex: 1;
+}
+
+.adb-ann-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e8eaf0;
+  cursor: pointer; transition: background 0.15s;
+}
+.adb-ann-item:last-child { border-bottom: none; }
+.adb-ann-item:hover {
+  background: #fafbfc; border-radius: 8px;
+  padding-left: 8px; padding-right: 8px;
+  margin-left: -8px; margin-right: -8px;
+}
+
+.adb-ann-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.adb-ann-icon svg { width: 16px; height: 16px; }
+
+.adb-ann-body { flex: 1; min-width: 0; }
+.adb-ann-title {
+  font-size: 13px; font-weight: 600; color: #1a1a2e;
+  line-height: 1.4; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.adb-ann-meta {
+  display: flex; align-items: center; gap: 8px; margin-top: 4px;
+}
+.adb-ann-date  { font-size: 11px; color: #b0bac8; }
+.adb-ann-badge {
+  font-size: 10px; font-weight: 600;
+  padding: 2px 7px; border-radius: 20px; letter-spacing: 0.3px;
+}
+.adb-ann-unread {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #2d5be3; flex-shrink: 0; margin-top: 6px;
+}
+
+/* ══ ANIMATION ═══════════════════════════════════════════════ */
+@keyframes adbFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ RESPONSIVE ══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .adb-grid { grid-template-columns: 1fr; }
+  .adb-stat-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .adb-stat-cards { grid-template-columns: 1fr; }
+}

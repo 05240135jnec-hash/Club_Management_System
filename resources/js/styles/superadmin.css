@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ══ PAGE WRAPPER ══ */
+.superadmin-page {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+}
+
+.superadmin-page .app-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+/* ══ SIDEBAR ══ */
+.superadmin-page .sidebar {
+  width: 200px; min-width: 200px;
+  background: #172D3D;
+  display: flex; flex-direction: column;
+  position: fixed; top: 0; left: 0; height: 100vh;
+  z-index: 100; transition: transform 0.28s ease;
+}
+.superadmin-page .sidebar-brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.superadmin-page .brand-avatar {
+  width: 48px; height: 48px; border-radius: 8px;
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; overflow: hidden;
+}
+.superadmin-page .brand-avatar img {
+  width: 80px; height: 85px;
+  object-fit: contain; border-radius: 0;
+  filter: brightness(1.1) contrast(1.05);
+}
+.superadmin-page .brand-text { display: flex; flex-direction: column; }
+.superadmin-page .brand-name { font-size: 12px; font-weight: 700; color: #fff; line-height: 1.3; }
+.superadmin-page .brand-sub  { font-size: 10px; font-weight: 400; color: #6b7f93; margin-top: 3px; }
+
+.superadmin-page .nav-group { padding: 20px 0 0; }
+.superadmin-page .nav-group-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #fff;
+  padding: 0 16px 10px 16px; line-height: 15px; opacity: 0.9;
+}
+.superadmin-page .nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 16px; font-size: 14px; font-weight: 500;
+  line-height: 20px; color: #7a8fa0;
+  cursor: pointer; text-decoration: none; position: relative;
+  transition: background 0.15s, color 0.15s;
+}
+.superadmin-page .nav-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.65; }
+.superadmin-page .nav-item:hover { background: rgba(255,255,255,0.06); color: #c8d8e4; }
+.superadmin-page .nav-item:hover svg { opacity: 0.9; }
+.superadmin-page .nav-item.active { background: #1e3d52; color: #fff; font-weight: 600; }
+.superadmin-page .nav-item.active::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: #2d5be3; border-radius: 0 2px 2px 0;
+}
+.superadmin-page .nav-item.active svg { opacity: 1; }
+
+/* ══ SIDEBAR OVERLAY ══ */
+.superadmin-page .sidebar-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45); z-index: 99;
+  opacity: 0; transition: opacity 0.28s ease;
+}
+.superadmin-page .sidebar-overlay.active { display: block; opacity: 1; }
+
+/* ══ MAIN CONTENT ══ */
+.superadmin-page .main-content {
+  margin-left: 200px; flex: 1;
+  display: flex; flex-direction: column;
+  min-height: 100vh; background: #f0f2f5;
+}
+
+/* ══ TOP BAR ══ */
+.superadmin-page .topbar {
+  height: 65px; background: #fff;
+  border-bottom: 1px solid #e8eaf0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; position: sticky; top: 0; z-index: 50;
+}
+.superadmin-page .topbar-left { display: flex; align-items: center; gap: 12px; }
+.superadmin-page .topbar-title-wrap { display: flex; flex-direction: column; }
+.superadmin-page .topbar-title    { font-size: 18px; font-weight: 700; color: #1a1a2e; line-height: 1.2; }
+.superadmin-page .topbar-subtitle { font-size: 11px; color: #8892a4; margin-top: 1px; }
+.superadmin-page .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+.superadmin-page .hamburger-btn {
+  display: none; width: 36px; height: 36px; border-radius: 8px;
+  border: none; background: #f0f2f5; cursor: pointer;
+  align-items: center; justify-content: center;
+  color: #4a5568; flex-shrink: 0; transition: background 0.15s;
+}
+.superadmin-page .hamburger-btn:hover { background: #e2e6ef; }
+.superadmin-page .hamburger-btn svg { width: 20px; height: 20px; }
+
+.superadmin-page .icon-btn {
+  position: relative; width: 36px; height: 36px; border-radius: 50%;
+  border: none; background: #f0f2f5; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s; color: #4a5568;
+}
+.superadmin-page .icon-btn:hover { background: #e2e6ef; color: #1a1a2e; }
+.superadmin-page .icon-btn svg { width: 18px; height: 18px; }
+
+.superadmin-page .notif-badge {
+  position: absolute; top: 6px; right: 6px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #e53e3e; border: 1.5px solid #fff;
+  display: none;
+}
+
+.superadmin-page .profile-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: #f0f2f5; border: none; border-radius: 24px;
+  padding: 5px 12px 5px 5px; cursor: pointer; transition: background 0.15s;
+}
+.superadmin-page .profile-btn:hover { background: #e2e6ef; }
+.superadmin-page .profile-avatar {
+  width: 28px; height: 28px; border-radius: 50%; background: #2d5be3;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+}
+.superadmin-page .profile-name { font-size: 12.5px; font-weight: 600; color: #1a1a2e; }
+
+/* ══ PAGE BODY ══ */
+.superadmin-page .page-body { padding: 28px 28px 40px; flex: 1; }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 768px) {
+  .superadmin-page .sidebar { transform: translateX(-100%); }
+  .superadmin-page .sidebar.open { transform: translateX(0); }
+  .superadmin-page .main-content { margin-left: 0; padding-top: 58px; }
+  .superadmin-page .app-wrapper { width: 100%; overflow-x: hidden; }
+  .superadmin-page .hamburger-btn { display: flex; }
+  .superadmin-page .topbar {
+    padding: 0 16px; height: 58px;
+    position: fixed; top: 0; left: 0; right: 0; width: 100%;
+  }
+  .superadmin-page .topbar-title { font-size: 15px; }
+  .superadmin-page .profile-name { display: none; }
+  .superadmin-page .profile-btn { padding: 4px; border-radius: 50%; }
+  .superadmin-page .page-body { padding: 16px 16px 24px; flex: unset; }
+}

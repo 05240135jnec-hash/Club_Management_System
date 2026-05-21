@@ -1,0 +1,418 @@
+/* ============================================================
+   JNEC – Advisor Members Page
+   File: members.css
+   ============================================================ */
+
+.mem-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 14px;
+  color: #1e2a3a;
+}
+
+/* ── Stats Row ── */
+.mem-stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.mem-stat-card {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mem-stat-card:hover {
+  border-color: #2d5be3;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.08);
+}
+.mem-stat-card.active {
+  border-color: #2d5be3;
+  background: #f0f4ff;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.12);
+}
+
+.mem-stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #1e2a3a;        /* ← dark */
+  margin-bottom: 6px;
+}
+.mem-stat-card.active .mem-stat-label { color: #2d5be3; }
+
+.mem-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d0d0d;        /* ← very dark */
+  line-height: 1;
+}
+.mem-stat-card.active .mem-stat-value { color: #2d5be3; }
+
+/* ── Tabs ── */
+.mem-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mem-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  border: 1.5px solid #e8eaf0;
+  background: #fff;
+  color: #1e2a3a;        /* ← dark */
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.mem-tab-btn:hover {
+  border-color: #2d5be3;
+  color: #2d5be3;
+  background: #f5f8ff;
+}
+.mem-tab-btn.active {
+  background: #172D3D;
+  color: #fff;
+  border-color: #172D3D;
+  box-shadow: 0 2px 8px rgba(23,45,61,0.18);
+}
+
+.mem-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #eef1fb;
+  color: #2d5be3;
+}
+.mem-tab-btn.active .mem-tab-count {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.mem-tab-count.inactive {
+  background: #fef3c7;
+  color: #b45309;
+}
+.mem-tab-btn.active .mem-tab-count.inactive {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+/* ── Search ── */
+.mem-search-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+.mem-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #4a5568;
+  pointer-events: none;
+}
+.mem-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: #0d0d0d;        /* ← dark */
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mem-search-input:focus {
+  border-color: #2d5be3;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.1);
+}
+.mem-search-input::placeholder { color: #6b7a8d; }
+
+/* ── Bulk Banner ── */
+.mem-bulk-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff8f0;
+  border: 1.5px solid #fde3c0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c3d00;        /* ← darker orange */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.mem-bulk-actions { display: flex; align-items: center; gap: 10px; }
+
+.mem-btn-clear {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e2a3a;        /* ← dark */
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+.mem-btn-clear:hover { background: #f0f2f5; }
+
+.mem-btn-delete-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #e53e3e;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.mem-btn-delete-all:hover { background: #c53030; }
+
+/* ── Table ── */
+.mem-table-wrap {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.mem-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.mem-table thead tr {
+  background: #f8f9fb;
+  border-bottom: 1.5px solid #e8eaf0;
+}
+
+.mem-table th {
+  padding: 12px 16px;
+  font-size: 12px;       /* slightly bigger */
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #1e2a3a;        /* ← DARK — was faded grey */
+  text-align: left;
+  white-space: nowrap;
+}
+
+.col-check { width: 44px; }
+
+.mem-table tbody tr {
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.12s;
+}
+.mem-table tbody tr:last-child { border-bottom: none; }
+.mem-table tbody tr:hover { background: #f8f9fb; }
+.mem-table tbody tr.row-selected { background: #f5f8ff; }
+
+.mem-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #111827;        /* ← dark */
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.mem-check {
+  width: 16px;
+  height: 16px;
+  accent-color: #2d5be3;
+  cursor: pointer;
+}
+
+/* Member cell */
+.mem-member-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mem-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.mem-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;        /* ← dark */
+}
+.mem-year {
+  font-size: 12px;
+  color: #4a5568;        /* ← darker than before */
+  margin-top: 1px;
+}
+
+.mem-badge {
+  display: inline-block;
+  background: #e6f9f0;
+  color: #1a8a52;        /* ← darker green */
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* Action buttons */
+.mem-btn-remove {
+  background: #fff0f0;
+  border: 1.5px solid #fcd5d5;
+  border-radius: 7px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #c53030;        /* ← darker red */
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.mem-btn-remove:hover {
+  background: #e53e3e;
+  color: #fff;
+  border-color: #e53e3e;
+}
+
+/* Info bar (inactive tab) */
+.mem-info-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: 10px;
+  padding: 11px 16px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #7c3d00;        /* ← darker amber */
+  font-weight: 500;
+}
+
+/* Restore button */
+.mem-btn-restore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #e6f9f0;
+  border: 1.5px solid #6ee7b7;
+  border-radius: 7px;
+  padding: 5px 13px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #047857;        /* ← darker green */
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.mem-btn-restore:hover {
+  background: #059669;
+  color: #fff;
+  border-color: #059669;
+}
+
+/* Permanent delete button */
+.mem-btn-perm-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c53030;        /* ← darker red */
+  padding: 5px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.mem-btn-perm-delete:hover {
+  background: #fff5f5;
+  color: #9b1c1c;
+}
+
+.mem-action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mem-removed-date {
+  font-size: 12px;
+  color: #4a5568;        /* ← darker than before */
+}
+
+/* Empty state */
+.mem-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #4a5568;        /* ← darker */
+}
+.mem-empty svg { margin: 0 auto 12px; display: block; }
+.mem-empty p { font-size: 14px; }
+
+/* SweetAlert custom */
+.swal-custom-popup {
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  border-radius: 16px !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+}
+.swal-custom-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1a1a2e !important;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .mem-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .mem-stat-value { font-size: 22px; }
+  .mem-stat-card { padding: 12px 14px; }
+  .mem-tabs { flex-wrap: wrap; }
+  .mem-tab-btn { flex: 1; justify-content: center; font-size: 13px; padding: 8px 12px; }
+  .mem-bulk-banner { flex-direction: column; align-items: flex-start; }
+  .mem-bulk-actions { width: 100%; }
+  .mem-btn-delete-all { flex: 1; justify-content: center; }
+  .mem-table td { font-size: 13px; padding: 10px 12px; }
+  .mem-table th { padding: 10px 12px; }
+}
+
+@media (max-width: 400px) {
+  .mem-stats-row { grid-template-columns: 1fr; }
+}
