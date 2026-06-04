@@ -107,7 +107,13 @@ export default function AllClubs() {
     e.stopPropagation();
     if (openMenuId === clubId) { setOpenMenuId(null); return; }
     const rect = e.currentTarget.getBoundingClientRect();
-    setMenuPos({ top: rect.bottom + window.scrollY + 4, left: rect.right - 148 });
+    const dropdownHeight = 180; // approximate height of dropdown
+    const spaceBelow = window.innerHeight - rect.bottom;
+    
+    const top = spaceBelow < dropdownHeight
+      ? rect.top - dropdownHeight      // open upward
+      : rect.bottom + 4; 
+    setMenuPos({ top: top, left: rect.right - 148 });
     setOpenMenuId(clubId);
   }
 
