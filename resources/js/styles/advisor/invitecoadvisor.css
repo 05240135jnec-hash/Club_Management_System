@@ -1,0 +1,462 @@
+/* ══════════════════════════════════════════════════════════
+   JNEC Club Management — Invite Co-Adviser
+   File: resources/styles/advisor/invitecoadvisor.css
+══════════════════════════════════════════════════════════ */
+
+/* ── PAGE WRAPPER ── */
+.ica-page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 28px;
+  position: relative;
+}
+
+/* ── TOAST ── */
+.ica-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  color: #fff;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+  z-index: 9999;
+  max-width: 340px;
+}
+.ica-toast.show     { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.ica-toast--success { background: #065f46; }
+.ica-toast--error   { background: #7f1d1d; }
+
+/* ── INFO BANNER ── */
+.ica-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #1e3a6e;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.ica-banner__icon { flex-shrink: 0; color: #1d4ed8; margin-top: 1px; }
+.ica-banner__icon svg { width: 18px; height: 18px; }
+.ica-banner__text strong { font-weight: 800; color: #1e3a6e; }
+
+/* ── CARD BASE ── */
+.ica-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  overflow: visible;
+}
+
+.ica-card__head {
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 16px 16px 0 0;
+}
+.ica-card__title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.ica-card__sub {
+  font-size: 12.5px;
+  color: #475569;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ── FORM BODY ── */
+.ica-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ica-field { display: flex; flex-direction: column; gap: 6px; }
+.ica-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.ica-required { color: #ef4444; margin-left: 2px; }
+.ica-input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  font-family: inherit;
+  font-weight: 500;
+}
+.ica-input:focus {
+  border-color: #1a2332;
+  box-shadow: 0 0 0 3px rgba(26,35,50,0.10);
+  background: #fff;
+}
+.ica-input.err { border-color: #ef4444; }
+.ica-hint {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.ica-error {
+  font-size: 12px;
+  font-weight: 600;
+  color: #b91c1c;
+  background: #fdf2f2;
+  border: 1px solid #fca5a5;
+  padding: 7px 11px;
+  border-radius: 7px;
+}
+
+/* ── ACTION ROW ── */
+.ica-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+.ica-priv-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: #1e293b;
+  font-weight: 600;
+}
+.ica-priv-note svg { width: 14px; height: 14px; color: #10b981; flex-shrink: 0; }
+.ica-priv-note strong { color: #0f172a; font-weight: 800; }
+
+.ica-send-btn {
+  padding: 11px 28px;
+  background: #1a2332;
+  color: #c9a84c;
+  border: none;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 2px 8px rgba(26,35,50,0.28);
+  font-family: inherit;
+  letter-spacing: 0.3px;
+}
+.ica-send-btn:hover {
+  background: #253448;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+}
+
+/* ── LIST ── */
+.ica-list {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: visible;
+}
+
+/* ── EMPTY STATE ── */
+.ica-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 28px 0;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ica-empty__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+}
+.ica-empty__icon svg { width: 20px; height: 20px; }
+
+/* ── ROW ── */
+.ica-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  position: relative;
+  overflow: visible;
+  animation: icaSlideIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes icaSlideIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── AVATAR ── */
+.ica-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: #334155;
+  flex-shrink: 0;
+}
+.ica-avatar--active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ── INFO ── */
+.ica-info { flex: 1; min-width: 0; }
+
+/* ── EMAIL / NAME — BRIGHT & READABLE ── */
+.ica-email {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: inherit;        /* removed monospace — matches rest of UI */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── TIMESTAMP / META ── */
+.ica-time {
+  font-size: 11.5px;
+  color: #475569;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+/* ── BADGES ── */
+.ica-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.ica-badge--pending {
+  background: #fef3c7;
+  color: #78350f;
+  border: 1px solid #fcd34d;
+}
+.ica-badge--active {
+  background: #d1fae5;
+  color: #064e3b;
+  border: 1px solid #6ee7b7;
+}
+
+/* ── 3-DOT BUTTON ── */
+.ica-dot-wrap { position: relative; flex-shrink: 0; }
+.ica-dot-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+.ica-dot-btn:hover { background: #f1f5f9; color: #1e293b; }
+
+/* ── 3-DOT DROPDOWN ── */
+.ica-dot-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 9999;
+  min-width: 150px;
+  overflow: hidden;
+  animation: icaDropIn 0.18s cubic-bezier(0.34,1.36,0.64,1);
+}
+@keyframes icaDropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── DROPDOWN ITEM ── */
+.ica-dot-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: #1e293b;
+  transition: background 0.14s;
+}
+.ica-dot-item:hover { background: #f5f7fa; }
+.ica-dot-item--danger { color: #ef4444; }
+.ica-dot-item--danger:hover { background: #fef2f2; }
+
+/* ── MODAL BACKDROP ── */
+.ica-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15,25,36,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(3px);
+  animation: icaFadeIn 0.22s ease;
+}
+@keyframes icaFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── MODAL ── */
+.ica-modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 30px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  animation: icaPopIn 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes icaPopIn {
+  from { transform: scale(0.92) translateY(12px); opacity: 0; }
+  to   { transform: scale(1) translateY(0);       opacity: 1; }
+}
+.ica-modal__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.ica-modal__icon--send {
+  background: linear-gradient(135deg, #1a2332, #253448);
+  color: #c9a84c;
+  box-shadow: 0 4px 16px rgba(26,35,50,0.3);
+}
+.ica-modal__icon--warn {
+  background: #fef3c7;
+  color: #d97706;
+}
+.ica-modal__icon svg { width: 26px; height: 26px; }
+.ica-modal__title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.ica-modal__desc {
+  font-size: 13px;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.ica-modal__desc strong { color: #0f172a; font-weight: 700; }
+.ica-modal__btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* ── MODAL BUTTONS ── */
+.ica-btn {
+  flex: 1;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+.ica-btn--cancel {
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+}
+.ica-btn--cancel:hover { background: #f1f5f9; border-color: #c7d2e8; }
+.ica-btn--confirm {
+  border: none;
+  background: #1a2332;
+  color: #c9a84c;
+  font-weight: 700;
+}
+.ica-btn--confirm:hover:not(:disabled) { background: #253448; }
+.ica-btn--confirm:disabled { opacity: 0.55; cursor: not-allowed; }
+.ica-btn--danger {
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  font-weight: 700;
+}
+.ica-btn--danger:hover { background: #dc2626; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .ica-page { padding: 16px 14px 24px; gap: 16px; }
+  .ica-action-row { flex-direction: column; align-items: stretch; }
+  .ica-send-btn { width: 100%; }
+  .ica-priv-note { justify-content: center; }
+  .ica-row { flex-wrap: wrap; }
+  .ica-toast { bottom: 16px; right: 16px; left: 16px; max-width: none; }
+  .ica-modal { padding: 28px 20px 22px; }
+}
+@media (max-width: 480px) {
+  .ica-modal__btns { flex-direction: column; }
+}

@@ -1,0 +1,123 @@
+/* ============================================================
+   student.css — STUDENT SPECIFIC STYLES ONLY
+   Navbar/topbar/hero handled by advisor.css
+============================================================ */
+
+/* MY CLUBS SECTION */
+.student-myclubs-section { margin-bottom: 3rem; }
+.student-myclubs-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.student-myclubs-count { font-size: 13px; color: #aaa; }
+.student-myclubs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.student-myclub-slot { border-radius: 14px; padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 12px; transition: all .15s; }
+.student-myclub-slot.filled { background: #fff; border: 0.5px solid #e2dfd8; cursor: pointer; }
+.student-myclub-slot.filled:hover { border-color: #bbb; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+.student-myclub-slot-avatar { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.student-myclub-slot-info { flex: 1; min-width: 0; }
+.student-myclub-slot-name { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.student-myclub-slot-cat { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 999px; }
+.student-myclub-slot-arrow { color: #bbb; font-size: 20px; flex-shrink: 0; }
+.student-myclub-slot.empty { background: transparent; border: 1.5px dashed #d5d0c8; cursor: default; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 90px; text-align: center; padding: 1.25rem; }
+.student-myclub-slot-plus { width: 28px; height: 28px; border-radius: 50%; background: #e8e5de; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #bbb; }
+.student-myclub-slot-empty-text { font-size: 12px; color: #bbb; line-height: 1.5; }
+
+/* JOIN BUTTON */
+.student-join-btn { width: 100%; padding: 9px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: #0c1b33; color: #c9a84c; transition: all .15s; }
+.student-join-btn:hover:not(:disabled) { background: #172d52; }
+.student-join-btn.joined { background: #e8f5e9; color: #2e7d32; cursor: default; font-weight: 700; }
+
+/* ENROLLMENT MODAL */
+.student-enroll-overlay { position: fixed; inset: 0; background: rgba(6,10,20,.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+.student-enroll-modal { background: #fff; border-radius: 16px; width: 100%; max-width: 420px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.25); animation: studentEnrollUp .2s ease; }
+@keyframes studentEnrollUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.student-enroll-modal-top { background: #0c1b33; padding: 1.5rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.student-enroll-modal-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.student-enroll-modal-sub { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+.student-enroll-modal-sub strong { color: #c9a84c; }
+.student-enroll-modal-x { width: 28px; height: 28px; background: rgba(255,255,255,.1); border: none; border-radius: 7px; cursor: pointer; font-size: 14px; color: rgba(255,255,255,.6); flex-shrink: 0; transition: all .15s; display: flex; align-items: center; justify-content: center; }
+.student-enroll-modal-x:hover { background: rgba(255,255,255,.2); color: #fff; }
+.student-enroll-modal-body { padding: 1.5rem; }
+.student-enroll-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #555; margin-bottom: 8px; }
+.student-enroll-input-wrap { position: relative; display: flex; align-items: center; margin-bottom: 8px; }
+.student-enroll-input { width: 100%; padding: 12px 44px 12px 14px; border-radius: 10px; border: 1.5px solid #e0ddd8; font-size: 14px; color: #1a1a1a; background: #fafaf8; outline: none; font-family: inherit; transition: border .15s; letter-spacing: 1px; }
+.student-enroll-input:focus { border-color: #0c1b33; background: #fff; }
+.student-enroll-input.error { border-color: #e05555; }
+.student-enroll-input.success { border-color: #2e7d32; background: #f1f8e9; }
+.student-enroll-input::placeholder { color: #bbb; letter-spacing: 0; }
+.student-enroll-eye { position: absolute; right: 12px; background: none; border: none; cursor: pointer; color: #aaa; display: flex; align-items: center; transition: color .15s; padding: 4px; }
+.student-enroll-eye:hover { color: #555; }
+.student-enroll-error { font-size: 12px; color: #e05555; font-weight: 500; margin-bottom: 8px; }
+.student-enroll-success { font-size: 12px; color: #2e7d32; font-weight: 600; margin-bottom: 8px; }
+.student-enroll-hint { font-size: 12px; color: #aaa; line-height: 1.5; margin-top: 4px; }
+.student-enroll-modal-footer { padding: 1rem 1.5rem; border-top: 0.5px solid #eee; display: flex; align-items: center; justify-content: flex-end; gap: 10px; background: #fafaf8; }
+.student-enroll-cancel { background: #eee; color: #555; padding: 10px 20px; border-radius: 9px; font-size: 13px; font-weight: 500; border: none; cursor: pointer; transition: background .15s; }
+.student-enroll-cancel:hover { background: #e0ddd8; }
+.student-enroll-submit { background: #0c1b33; color: #c9a84c; padding: 10px 26px; border-radius: 9px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: all .15s; }
+.student-enroll-submit:hover:not(:disabled) { background: #172d52; }
+.student-enroll-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .student-myclubs-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .student-myclubs-grid { grid-template-columns: 1fr; }
+}
+
+/* ── MAIN CONTENT AREA ── */
+.stu-main-content {
+  width: 100%; max-width: none;
+  padding: 2.5rem 3rem 0;
+}
+
+/* ── MOBILE MAIN ── */
+@media (max-width: 768px) {
+  .stu-main-content { padding: 1.5rem 0 0; }
+  .student-myclubs-section { padding: 0 1rem; }
+  .clubs-section { padding: 0 1rem; }
+}
+@media (max-width: 480px) {
+  .stu-main-content { padding: 1.25rem 0 0; }
+  .student-myclubs-section { padding: 0 0.75rem; }
+  .clubs-section { padding: 0 0.75rem; }
+}
+/* ═══════ COVER PHOTO CLUB CARDS (like public page) ═══════ */
+.stu-clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 1rem;
+}
+.stu-club-card {
+  background: #fff; border: 0.5px solid #e2dfd8;
+  border-radius: 14px; overflow: hidden;
+  cursor: pointer; transition: all .18s;
+}
+.stu-club-card:hover {
+  border-color: #bbb; transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.1);
+}
+.stu-cc-img { width: 100%; height: 160px; overflow: hidden; }
+.stu-cc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.stu-club-card:hover .stu-cc-img img { transform: scale(1.04); }
+.stu-cc-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0c1b33 0%, #1e3a5f 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.stu-cc-img-placeholder span {
+  font-size: 48px; font-weight: 700;
+  color: rgba(201,168,76,.6); text-transform: uppercase;
+}
+.stu-cc-body { padding: 1.2rem 1.4rem 1.4rem; }
+.stu-cc-name { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+.stu-cc-tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
+}
+
+@media (max-width: 768px) {
+  .stu-clubs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .stu-clubs-grid { grid-template-columns: 1fr; }
+}

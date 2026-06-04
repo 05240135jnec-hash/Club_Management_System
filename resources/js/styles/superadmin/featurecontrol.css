@@ -1,0 +1,142 @@
+/* ══ PAGE ════════════════════════════════════════════════════ */
+.fc-page { display: flex; flex-direction: column; gap: 20px; }
+
+/* ══ CARD ════════════════════════════════════════════════════ */
+.fc-card {
+  background: #fff; border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* ══ SEARCH ══════════════════════════════════════════════════ */
+.fc-search-wrap { padding: 16px 20px; border-bottom: 1px solid #e2e8f0; }
+.fc-search {
+  display: flex; align-items: center; gap: 10px;
+  background: #f8fafc; border: 1.5px solid #e2e8f0;
+  border-radius: 10px; padding: 9px 14px;
+  max-width: 400px;
+}
+.fc-search svg { width: 16px; height: 16px; color: #94a3b8; flex-shrink: 0; }
+.fc-search input {
+  border: none; background: transparent; font-size: 13px;
+  color: #1e293b; outline: none; width: 100%; font-family: inherit;
+}
+.fc-search input::placeholder { color: #94a3b8; }
+
+/* ══ TABLE ═══════════════════════════════════════════════════ */
+.fc-table-wrap { width: 100%; overflow-x: auto; }
+.fc-table { width: 100%; border-collapse: collapse; }
+.fc-table thead tr { border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
+.fc-table th {
+  padding: 12px 20px; font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  color: #1a1a2e;; text-align: left;
+}
+.fc-th-center { text-align: center !important; }
+.fc-th-icon {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+}
+.fc-table td {
+  padding: 14px 20px; border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+.fc-table tbody tr:last-child td { border-bottom: none; }
+
+.fc-row { transition: background 0.12s; }
+.fc-row:hover { background: #f8faff; }
+.fc-row.changed { background: #fffbeb; }
+.fc-row.changed:hover { background: #fef9c3; }
+/* ADD this new rule */
+.fc-status-cell {
+  text-align: center;
+  width: 80px;
+  min-width: 80px;
+}
+
+/* ADD these too for the saving/saved text styling */
+.fc-status {
+  font-size: 12px;
+  font-weight: 600;
+}
+.fc-status.saving { color: #94a3b8; }
+.fc-status.saved  { color: #16a34a; }
+/* ══ CLUB INFO ═══════════════════════════════════════════════ */
+.fc-club-info { display: flex; align-items: center; gap: 12px; }
+.fc-club-avatar {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: #172D3D; color: #c9a84c;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; flex-shrink: 0;
+}
+.fc-club-name { font-size: 14px; font-weight: 700; color: #0f172a; }
+.fc-club-cat  { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+/* ══ TOGGLE CELL ═════════════════════════════════════════════ */
+.fc-toggle-cell { text-align: center; }
+
+.fc-toggle {
+  display: inline-flex; align-items: center; gap: 10px;
+  cursor: pointer; user-select: none;
+}
+.fc-toggle input { display: none; }
+
+.fc-toggle-track {
+  position: relative; width: 44px; height: 24px;
+  border-radius: 12px; background: #e2e8f0;
+  transition: background 0.2s;
+  display: flex; align-items: center;
+  flex-shrink: 0;
+}
+.fc-toggle input:checked + .fc-toggle-track { background: #22c55e; }
+
+.fc-toggle-thumb {
+  position: absolute; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.fc-toggle input:checked + .fc-toggle-track .fc-toggle-thumb {
+  transform: translateX(20px);
+}
+
+.fc-toggle-label {
+  font-size: 13px; font-weight: 600;
+  color: #64748b; min-width: 24px;
+}
+.fc-toggle input:checked ~ .fc-toggle-label { color: #16a34a; }
+
+/* ══ EMPTY ═══════════════════════════════════════════════════ */
+.fc-empty {
+  text-align: center; padding: 48px;
+  color: #94a3b8; font-size: 13px;
+}
+
+/* ══ FOOTER ══════════════════════════════════════════════════ */
+.fc-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; background: #f8fafc;
+  border-top: 1px solid #e2e8f0; gap: 12px; flex-wrap: wrap;
+}
+.fc-footer-note { font-size: 12.5px; color: #64748b; }
+
+.fc-save-btn {
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  padding: 9px 22px; border-radius: 8px; border: none;
+  cursor: pointer; transition: all 0.15s;
+  background: #e2e8f0; color: #94a3b8;
+}
+.fc-save-btn.active {
+  background: #172D3D; color: #c9a84c;
+}
+.fc-save-btn.active:hover { background: #1e3d52; }
+.fc-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ══ RESPONSIVE ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .fc-table th,
+  .fc-table td { padding: 12px 14px; }
+  .fc-footer { flex-direction: column; align-items: flex-start; }
+  .fc-save-btn { width: 100%; text-align: center; }
+}

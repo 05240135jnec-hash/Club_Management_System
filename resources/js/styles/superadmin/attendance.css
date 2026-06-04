@@ -1,0 +1,222 @@
+/* ============================================================
+   superadmin/attendance.css
+   ============================================================ */
+
+/* ══ PAGE ════════════════════════════════════════════════════ */
+.sa-att-page { display: flex; flex-direction: column; gap: 20px; }
+
+/* ══ STAT CARDS ══════════════════════════════════════════════ */
+.sa-att-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.sa-att-stat {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sa-att-stat-label {
+  font-size: 13px; font-weight: 600;
+  color: #1a2332;
+}
+.sa-att-stat-num {
+  font-size: 32px; font-weight: 700;
+  color: #1a2332; line-height: 1;
+}
+
+/* ══ CARD ════════════════════════════════════════════════════ */
+.sa-att-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* ══ CARD HEADER ════════════════════════════════════════════ */
+.sa-att-card-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap; gap: 10px;
+}
+.sa-att-card-title {
+  font-size: 15px; font-weight: 700;
+  color: #1a2332;
+}
+.sa-att-search {
+  display: flex; align-items: center; gap: 8px;
+  background: #f8fafc; border: 1px solid #e2e8f0;
+  border-radius: 8px; padding: 8px 12px;
+  min-width: 200px;
+}
+.sa-att-search svg { width: 15px; height: 15px; color: #94a3b8; flex-shrink: 0; }
+.sa-att-search input {
+  border: none; background: transparent;
+  font-size: 13px; color: #1a2332;
+  outline: none; width: 100%; font-family: inherit;
+}
+
+/* ══ TABLE ════════════════════════════════════════════════════ */
+.sa-att-table-wrap { overflow-x: auto; }
+.sa-att-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.sa-att-table th {
+  padding: 10px 16px;
+  background: #f8fafc;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.7px;
+  color: #1a2332; text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+.sa-att-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1a2332; vertical-align: middle;
+}
+.sa-att-table tbody tr:last-child td { border-bottom: none; }
+.sa-att-table tbody tr.clickable {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.sa-att-table tbody tr.clickable:hover { background: #f8fafc; }
+
+/* ══ CLUB AVATAR ════════════════════════════════════════════ */
+.sa-att-club-cell {
+  display: flex; align-items: center; gap: 10px;
+}
+.sa-att-avatar {
+  width: 36px; height: 36px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+  background: #172D3D;
+  color: #c9a84c;
+}
+.sa-att-club-name  { font-size: 13.5px; font-weight: 600; color: #1a2332; }
+.sa-att-club-cat   { font-size: 11px; color: #475569; margin-top: 1px; }
+
+/* ══ MEMBER AVATAR ══════════════════════════════════════════ */
+.sa-att-member-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+  background: #172D3D;
+  color: #c9a84c;
+}
+
+/* ══ PROGRESS BAR ════════════════════════════════════════════ */
+.sa-att-bar-wrap {
+  display: flex; align-items: center; gap: 8px;
+}
+.sa-att-bar-bg {
+  width: 70px; height: 6px;
+  background: #e2e8f0; border-radius: 4px; overflow: hidden;
+  flex-shrink: 0;
+}
+.sa-att-bar-fill { height: 100%; border-radius: 4px; }
+.sa-att-bar-pct  { font-size: 12.5px; font-weight: 700; min-width: 34px; color: #1a2332; }
+
+/* ══ BADGES ══════════════════════════════════════════════════ */
+.sa-att-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11.5px; font-weight: 600;
+  white-space: nowrap;
+}
+.sa-att-badge.green   { background: #dcfce7; color: #15803d; }
+.sa-att-badge.amber   { background: #fef9c3; color: #a16207; }
+.sa-att-badge.red     { background: #fee2e2; color: #b91c1c; }
+.sa-att-badge.present { background: #dcfce7; color: #15803d; }
+.sa-att-badge.absent  { background: #fee2e2; color: #b91c1c; }
+.sa-att-badge.gray    { background: #f1f5f9; color: #475569; }
+
+/* ══ BREADCRUMB ══════════════════════════════════════════════ */
+.sa-att-breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: #475569;
+  flex-wrap: wrap;
+}
+.sa-att-breadcrumb .sep { color: #cbd5e1; }
+.sa-att-breadcrumb .crumb-link {
+  color: #2d5be3; cursor: pointer; font-weight: 500;
+  background: none; border: none;
+  font-family: inherit; font-size: 13px;
+  padding: 0; text-decoration: none;
+}
+.sa-att-breadcrumb .crumb-link:hover { text-decoration: underline; }
+.sa-att-breadcrumb .crumb-current {
+  font-weight: 600; color: #1a2332;
+}
+
+/* ══ BACK BUTTON ═════════════════════════════════════════════ */
+.sa-att-back-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px; border-radius: 8px;
+  border: 1px solid #e2e8f0; background: #fff;
+  font-size: 13px; font-weight: 600; color: #1a2332;
+  cursor: pointer; font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+.sa-att-back-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+.sa-att-back-btn svg { width: 15px; height: 15px; }
+
+/* ══ SESSION STAT ROW ════════════════════════════════════════ */
+.sa-att-session-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.sa-att-session-stat {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sa-att-session-stat-label {
+  font-size: 13px; font-weight: 600;
+  color: #1a2332;
+}
+.sa-att-session-stat-num {
+  font-size: 32px; font-weight: 700; line-height: 1;
+  color: #1a2332;
+}
+
+/* ══ EMPTY STATE ═════════════════════════════════════════════ */
+.sa-att-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 48px 24px; gap: 10px;
+  color: #94a3b8;
+}
+.sa-att-empty svg { width: 40px; height: 40px; opacity: 0.45; }
+.sa-att-empty p {
+  font-size: 13.5px; font-weight: 500;
+  color: #94a3b8; margin: 0;
+}
+
+/* ══ LOADING ═════════════════════════════════════════════════ */
+.sa-att-loading {
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 24px; color: #94a3b8;
+  font-size: 13.5px; gap: 10px;
+}
+
+/* ══ RESPONSIVE ══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .sa-att-stats { grid-template-columns: 1fr 1fr; }
+  .sa-att-session-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .sa-att-card-header { flex-direction: column; align-items: flex-start; }
+  .sa-att-search { width: 100%; min-width: unset; }
+  .sa-att-bar-bg { display: none; }
+}

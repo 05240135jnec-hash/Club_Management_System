@@ -1,0 +1,88 @@
+/* =====================================================
+   JNEC Club Management System
+   File: css/login.css
+   Page: Login Page
+   Extends register.css — only overrides/additions here
+   ===================================================== */
+
+/* ─── Forgot password link inside label ─── */
+.field-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forgot-link {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.60);
+  text-decoration: none;
+  text-transform: none;
+  transition: color 0.2s;
+  margin-left: auto;
+}
+
+.forgot-link:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* ─── Login card is a bit narrower / centered ─── */
+.page-wrapper {
+  justify-content: center;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ─── Slightly tighter vertical spacing for 2-field form ─── */
+.form-card {
+  padding: 38px 38px 34px;
+}
+
+.field-group {
+  margin-bottom: 16px;
+}
+
+/* ─── Button label override ─── */
+.btn-register {
+  margin-top: 24px;
+}
+/* ── Google login button ── */
+.login-divider {
+  display: flex; align-items: center;
+  gap: 12px; margin: 18px 0 14px;
+}
+.login-divider::before,
+.login-divider::after {
+  content: ''; flex: 1;
+  height: 0.5px; background: rgba(255,255,255,.15);
+}
+.login-divider span {
+  font-size: 12px; color: rgba(255,255,255,.4);
+  white-space: nowrap;
+}
+
+.btn-google {
+  width: 100%; display: flex; align-items: center;
+  justify-content: center; gap: 10px;
+  background: rgba(255,255,255,.93);
+  border: none; border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 14px; font-weight: 600;
+  color: #3c3c3c; cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.btn-google:hover {
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}

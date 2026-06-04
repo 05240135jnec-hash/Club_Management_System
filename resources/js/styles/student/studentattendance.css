@@ -1,0 +1,219 @@
+/* ============================================================
+   studentattendance.css — sat- prefix
+============================================================ */
+
+/* Club Switcher */
+.sat-club-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+.sat-club-tab {
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  border: 1.5px solid #e2e6ef;
+  background: #fff; color: #4a5568; transition: all 0.15s;
+}
+.sat-club-tab:hover { border-color: #2d5be3; color: #2d5be3; }
+.sat-club-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+
+/* Summary Row */
+.sat-summary-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.sat-summary-card {
+  background: #fff; border-radius: 12px;
+  border: 1px solid #e8eaf0; padding: 24px 20px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 8px;
+  transition: box-shadow 0.2s; min-height: 110px;
+  animation: sat-slideUp 0.35s ease both;
+}
+.sat-summary-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.sat-s-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.6px; text-transform: uppercase;
+  color: #4a5568;
+}
+.sat-s-value {
+  font-size: 32px; font-weight: 800;
+  color: #1a1a2e; line-height: 1;
+}
+
+/* Attendance Card */
+.sat-attendance-card {
+  background: #fff; border-radius: 12px;
+  border: 1px solid #e8eaf0; overflow: hidden;
+}
+
+/* Card Header */
+.sat-card-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f0f2f5;
+  flex-wrap: wrap; gap: 12px;
+}
+.sat-card-header-left { display: flex; flex-direction: column; }
+.sat-card-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.sat-card-subtitle { font-size: 11px; color: #4a5568; margin-top: 2px; }
+
+/* Filter bar */
+.sat-filter-bar {
+  display: flex; align-items: center;
+  gap: 10px; flex-wrap: wrap;
+}
+.sat-search-wrap { position: relative; display: flex; align-items: center; }
+.sat-search-wrap svg {
+  position: absolute; left: 10px;
+  width: 14px; height: 14px; color: #4a5568; pointer-events: none;
+}
+.sat-search-input {
+  padding: 7px 12px 7px 32px;
+  border: 1px solid #e8eaf0; border-radius: 8px;
+  font-size: 12.5px; font-family: inherit;
+  color: #1a1a2e; background: #f8f9fb; outline: none;
+  width: 200px; transition: border-color 0.15s, box-shadow 0.15s;
+}
+.sat-search-input::placeholder { color: #8892a4; }
+.sat-search-input:focus {
+  border-color: #2d5be3;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.08);
+  background: #fff;
+}
+.sat-filter-select {
+  padding: 7px 30px 7px 12px;
+  border: 1px solid #e8eaf0; border-radius: 8px;
+  font-size: 12.5px; font-family: inherit;
+  color: #1a1a2e; background: #f8f9fb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234a5568' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  appearance: none; outline: none; cursor: pointer;
+  transition: border-color 0.15s;
+}
+.sat-filter-select:focus { border-color: #2d5be3; }
+.sat-date-input {
+  padding: 7px 12px;
+  border: 1px solid #e8eaf0; border-radius: 8px;
+  font-size: 12.5px; font-family: inherit;
+  color: #1a1a2e; background: #f8f9fb; outline: none;
+  transition: border-color 0.15s;
+}
+.sat-date-input:focus { border-color: #2d5be3; }
+
+/* Table */
+.sat-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.sat-table-wrap::-webkit-scrollbar { height: 5px; }
+.sat-table-wrap::-webkit-scrollbar-track { background: #f0f2f5; }
+.sat-table-wrap::-webkit-scrollbar-thumb { background: #d0d5dd; border-radius: 4px; }
+
+.sat-table {
+  width: 100%; min-width: 520px; border-collapse: collapse;
+}
+.sat-table thead tr {
+  background: #f8f9fb; border-bottom: 1px solid #f0f2f5;
+}
+.sat-table thead th {
+  padding: 11px 24px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.7px; text-transform: uppercase;
+  color: #4a5568; text-align: left; white-space: nowrap;
+}
+.sat-table tbody tr {
+  border-bottom: 1px solid #f5f6f8;
+  transition: background 0.12s;
+}
+.sat-table tbody tr:last-child { border-bottom: none; }
+.sat-table tbody tr:hover { background: #f8f9fb; }
+.sat-table tbody td {
+  padding: 14px 24px;
+  font-size: 13.5px; color: #1a1a2e; vertical-align: middle;
+}
+.sat-event-name { font-weight: 600; color: #1a1a2e; }
+.sat-date-cell  { color: #4a5568; font-size: 13px; }
+
+/* Status badges */
+.sat-status-badge {
+  display: inline-flex; align-items: center;
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+}
+.sat-status-badge.present {
+  background: #dcfce7; color: #15803d;
+}
+.sat-status-badge.absent {
+  background: #fee2e2; color: #dc2626;
+}
+
+/* Skeleton */
+.sat-skeleton-list { display: flex; flex-direction: column; }
+.sat-skeleton-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 24px; border-bottom: 1px solid #f5f6f8;
+}
+.sat-skeleton-cell {
+  height: 12px; border-radius: 6px;
+  background: linear-gradient(90deg, #f0f2f5 25%, #e8eaf0 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: sat-shimmer 1.4s infinite; width: 30%;
+}
+.sat-skeleton-cell.wide  { width: 45%; }
+.sat-skeleton-cell.short { width: 20%; }
+
+/* Empty state */
+.sat-empty-state {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 24px; gap: 12px; color: #4a5568;
+}
+.sat-empty-state svg { width: 40px; height: 40px; opacity: 0.4; }
+.sat-empty-state p { font-size: 13px; color: #4a5568; }
+
+/* Animations */
+@keyframes sat-slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sat-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sat-summary-row { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .sat-s-value { font-size: 28px; }
+}
+@media (max-width: 900px) {
+  .sat-summary-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .sat-summary-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sat-summary-card { padding: 20px 14px; min-height: 100px; gap: 6px; }
+  .sat-s-value { font-size: 28px; }
+  .sat-card-header { flex-direction: column; align-items: flex-start; padding: 16px; gap: 14px; }
+  .sat-filter-bar { width: 100%; flex-direction: row !important; flex-wrap: nowrap !important; gap: 6px; }
+  .sat-search-wrap { flex: 1; min-width: 0; }
+  .sat-search-input { width: 100%; min-width: 0; font-size: 12px; }
+  .sat-filter-select { flex-shrink: 0; width: auto !important; font-size: 12px; padding: 7px 24px 7px 8px; }
+  .sat-date-input { flex-shrink: 0; width: 130px !important; font-size: 12px; padding: 7px 6px; }
+  .sat-table thead th { padding: 10px 14px; }
+  .sat-table tbody td { padding: 12px 14px; }
+}
+@media (max-width: 540px) {
+  .sat-summary-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .sat-summary-card { padding: 16px 10px; min-height: 88px; gap: 5px; }
+  .sat-s-value { font-size: 24px; }
+  .sat-s-label { font-size: 10px; }
+  .sat-attendance-card { border-radius: 10px; }
+  .sat-card-header { padding: 14px; }
+  .sat-card-title { font-size: 14px; }
+  .sat-filter-bar { flex-direction: row !important; flex-wrap: nowrap !important; }
+  .sat-filter-select, .sat-date-input { width: auto !important; }
+}
+@media (max-width: 380px) {
+  .sat-summary-row { gap: 8px; }
+  .sat-s-value { font-size: 20px; }
+  .sat-summary-card { padding: 14px 8px; }
+}

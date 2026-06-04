@@ -1,0 +1,562 @@
+/* ============================================================
+   club-detail.css
+   Styles for: Top Announcement Bar + Club Detail Page
+   ============================================================ */
+
+/* ══ BAR 1: White announcement bar ══════════════════════════ */
+.advisor-page .top-announcement-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #e8e5de;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.advisor-page .tab-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.advisor-page .tab-link {
+  font-size: 12px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color 0.15s;
+}
+
+.advisor-page .tab-link:hover {
+  color: #0c1b33;
+  text-decoration: underline;
+}
+
+.advisor-page .tab-sep {
+  color: #ccc;
+  font-size: 12px;
+  user-select: none;
+}
+
+/* ══ Fix navbar to sit below Bar 1 ══════════════════════════ */
+.advisor-page .nav {
+  top: 36px !important;
+}
+
+/* ══ Fix scroll-progress to sit above Bar 1 ════════════════ */
+.advisor-page .scroll-progress {
+  top: 0;
+  z-index: 10001;
+}
+
+/* ══ Fix mobile-menu offset ════════════════════════════════ */
+.advisor-page .mobile-menu {
+  top: calc(36px + 62px) !important;
+}
+
+/* ══ CLUB DETAIL PAGE ═══════════════════════════════════════ */
+.cd-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* Breadcrumb / back */
+.cd-breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.cd-back-btn {
+  background: none;
+  border: 0.5px solid #ccc;
+  color: #555;
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.cd-back-btn:hover {
+  background: #f5f4f0;
+  color: #1a1a1a;
+  border-color: #999;
+}
+
+/* Hero Banner */
+.cd-hero {
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border: 0.5px solid rgba(0,0,0,0.06);
+}
+
+.cd-hero-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.cd-hero-info {
+  flex: 1;
+}
+
+.cd-cat-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cd-club-name {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.cd-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cd-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Body grid */
+.cd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cd-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Sections */
+.cd-section {
+  background: #fff;
+  border: 0.5px solid #e2dfd8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cd-section-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.cd-section-text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+}
+
+.cd-objectives {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cd-obj-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.cd-obj-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Right info card */
+.cd-info-card {
+  background: #fff;
+  border: 0.5px solid #e2dfd8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  position: sticky;
+  top: calc(36px + 62px + 20px);
+}
+
+.cd-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.5px solid #eee;
+}
+
+.cd-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.cd-info-label {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+
+.cd-info-val {
+  font-size: 13px;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-align: right;
+  max-width: 160px;
+}
+
+.cd-info-divider {
+  height: 0.5px;
+  background: #f0ede8;
+}
+
+.cd-status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e1f5ee;
+  color: #085041;
+  text-transform: capitalize;
+}
+
+/* ══ ALBUMS SECTION ════════════════════════════════════════ */
+.cd-albums-section {
+  margin-top: 1rem;
+}
+
+.cd-albums-header {
+  margin-bottom: 1.5rem;
+}
+
+.cd-albums-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.cd-albums-sub {
+  font-size: 13px;
+  color: #888;
+}
+
+.cd-albums-loading,
+.cd-no-albums {
+  text-align: center;
+  padding: 3rem;
+  background: #f9f8f4;
+  border-radius: 14px;
+  border: 0.5px dashed #ddd;
+  color: #888;
+  font-size: 14px;
+}
+
+.cd-no-albums span {
+  display: block;
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 4px;
+}
+
+.cd-albums-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cd-album-card {
+  background: #fff;
+  border: 0.5px solid #e2dfd8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.15s;
+}
+
+.cd-album-card:hover {
+  border-color: #bbb;
+}
+
+.cd-album-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.cd-album-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.cd-album-meta {
+  font-size: 12px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cd-album-dot {
+  font-size: 10px;
+}
+
+.cd-album-count {
+  font-size: 12px;
+  color: #888;
+  background: #f5f4f0;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.cd-album-caption {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid #f0ede8;
+}
+
+/* Image grid */
+.cd-album-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.cd-album-img-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: #f0ede8;
+}
+
+.cd-album-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.cd-album-img-wrap:hover .cd-album-img {
+  transform: scale(1.05);
+}
+
+.cd-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cd-album-img-wrap:hover .cd-img-overlay {
+  opacity: 1;
+}
+
+/* ══ LIGHTBOX ════════════════════════════════════════════════ */
+.cd-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cd-lightbox-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.cd-lb-img {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.cd-lb-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cd-lb-close:hover { background: rgba(255,255,255,0.25); }
+
+.cd-lb-prev,
+.cd-lb-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cd-lb-prev { left: 1.5rem; }
+.cd-lb-next { right: 1.5rem; }
+.cd-lb-prev:hover, .cd-lb-next:hover { background: rgba(255,255,255,0.25); }
+
+.cd-lb-caption {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ══ LOADING SPINNER ════════════════════════════════════════ */
+.cd-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #888;
+  font-size: 14px;
+}
+
+.cd-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e2dfd8;
+  border-top-color: #0c1b33;
+  border-radius: 50%;
+  animation: cdSpin 0.8s linear infinite;
+}
+
+@keyframes cdSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ══ MOBILE SCROLL FIX ══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .cd-info-card {
+    position: static !important;
+    top: auto !important;
+  }
+  .cd-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .cd-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .cd-club-name { font-size: 24px; }
+  .cd-page { padding: 1rem 1rem 3rem; }
+  .cd-album-images {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .cd-lb-prev { left: 0.5rem; }
+  .cd-lb-next { right: 0.5rem; }
+
+  /* ACD edit form */
+  .acd-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .acd-card { padding: 16px !important; }
+  .acd-cover-banner { height: 160px !important; }
+  .acd-stats {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .acd-stat-divider {
+    width: 100% !important;
+    height: 1px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cd-hero-avatar { width: 60px; height: 60px; font-size: 24px; }
+  .cd-album-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

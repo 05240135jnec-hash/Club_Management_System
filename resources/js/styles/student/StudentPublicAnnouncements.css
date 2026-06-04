@@ -1,0 +1,1028 @@
+/* ══════════════════════════════════════
+   STUDENT PUBLIC ANNOUNCEMENTS — yoe- prefix
+   All classes scoped under .yoe-page to prevent override
+══════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+.yoe-page *, .yoe-page *::before, .yoe-page *::after {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.yoe-page {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif !important;
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  min-height: 100vh !important;
+}
+
+/* ══ BAR 1 — BLACK TOP BAR ══ */
+.yoe-page .yoe-top-bar {
+  background: #000 !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 1.5rem !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+}
+.yoe-page .yoe-top-bar-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  flex: 1 !important;
+}
+.yoe-page .yoe-top-bar-link {
+  color: rgba(255,255,255,.7) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: color .15s !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  padding: 0 !important;
+}
+.yoe-page .yoe-top-bar-link:hover { color: #fff !important; }
+.yoe-page .yoe-top-bar-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+.yoe-page .yoe-top-bar-search {
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  background: #1a1a1a !important;
+  border: 0.5px solid rgba(255,255,255,.15) !important;
+  border-radius: 6px !important;
+  padding: 5px 12px !important;
+  width: 240px !important;
+}
+.yoe-page .yoe-top-bar-search-icon {
+  color: rgba(255,255,255,.4) !important;
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
+}
+.yoe-page .yoe-top-bar-search input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #fff !important;
+  font-size: 12.5px !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.yoe-page .yoe-top-bar-search input::placeholder { color: rgba(255,255,255,.3) !important; }
+.yoe-page .yoe-top-bar-logout {
+  background: transparent !important;
+  border: 0.5px solid rgba(255,255,255,.3) !important;
+  color: rgba(255,255,255,.7) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 5px 16px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all .15s !important;
+  font-family: inherit !important;
+}
+.yoe-page .yoe-top-bar-logout:hover {
+  color: #fff !important;
+  border-color: rgba(255,255,255,.6) !important;
+  background: rgba(255,255,255,.06) !important;
+}
+
+/* ══ BAR 2 — DARK NAVY NAVBAR ══ */
+.yoe-page .yoe-navbar {
+  background: #0c1b33 !important;
+  height: 62px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: sticky !important;
+  top: 42px !important;
+  z-index: 9999 !important;
+  border-bottom: 0.5px solid rgba(255,255,255,.06) !important;
+  transition: background .3s, box-shadow .3s !important;
+}
+.yoe-page .yoe-navbar.scrolled {
+  background: #060e1f !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4) !important;
+}
+.yoe-page .yoe-navbar-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+  padding-left: 1.5rem !important;
+}
+.yoe-page .yoe-navbar-logo {
+  width: 65px !important;
+  height: 65px !important;
+  flex-shrink: 0 !important;
+}
+.yoe-page .yoe-navbar-logo img {
+  width: 65px !important;
+  height: 65px !important;
+  object-fit: contain !important;
+  
+}
+@keyframes yoeSpinLogo {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.yoe-page .yoe-navbar-brand {
+  color: #c9a84c !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: .3px !important;
+  white-space: nowrap !important;
+  margin-left: 4px !important;
+}
+.yoe-page .yoe-navbar-cats {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  padding: 0 10px !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.yoe-page .yoe-navbar-cats::-webkit-scrollbar { display: none !important; }
+.yoe-page .yoe-navbar-cat-item { position: relative !important; flex-shrink: 0 !important; }
+.yoe-page .yoe-navbar-cat-btn {
+  color: rgba(255,255,255,.6) !important;
+  font-size: 13px !important;
+  padding: 6px 13px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: none !important;
+  border: none !important;
+  transition: all .15s !important;
+  font-family: inherit !important;
+}
+.yoe-page .yoe-navbar-cat-btn:hover,
+.yoe-page .yoe-navbar-cat-btn.open {
+  color: #fff !important;
+  background: rgba(255,255,255,.1) !important;
+}
+.yoe-page .yoe-navbar-cat-btn .arr {
+  font-size: 10px !important;
+  transition: transform .2s !important;
+  display: inline-block !important;
+}
+.yoe-page .yoe-navbar-cat-btn.open .arr { transform: rotate(180deg) !important; }
+
+.yoe-page .yoe-cat-dropdown {
+  background: #fff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18) !important;
+  min-width: 210px !important;
+  padding: 6px 0 !important;
+  border: 0.5px solid #e8e5de !important;
+}
+.yoe-page .yoe-cat-dd-item {
+  padding: 10px 18px !important;
+  font-size: 13px !important;
+  color: #333 !important;
+  cursor: pointer !important;
+  transition: background .12s !important;
+}
+.yoe-page .yoe-cat-dd-item:hover {
+  background: #f5f4f0 !important;
+  color: #0c1b33 !important;
+  font-weight: 500 !important;
+}
+.yoe-page .yoe-navbar-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+  padding-right: 1.5rem !important;
+}
+.yoe-page .yoe-hamburger {
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: 38px !important;
+  height: 38px !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 0.5px solid rgba(255,255,255,.15) !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+.yoe-page .yoe-hamburger span {
+  display: block !important;
+  width: 18px !important; height: 2px !important;
+  background: #fff !important;
+  border-radius: 2px !important;
+  transition: transform .3s ease, opacity .3s ease !important;
+}
+.yoe-page .yoe-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px) !important; }
+.yoe-page .yoe-hamburger.open span:nth-child(2) { opacity: 0 !important; }
+.yoe-page .yoe-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px) !important; }
+
+/* ══ PAGE BODY ══ */
+.yoe-page .yoe-body {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 1.5rem 4rem !important;
+}
+
+/* ── BACK BUTTON ── */
+.yoe-page .yoe-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #4a5568 !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0.3rem 0 !important;
+  margin-bottom: 1.5rem !important;
+  transition: color 0.15s !important;
+  font-family: inherit !important;
+}
+.yoe-page .yoe-back-btn:hover { color: #172D3D !important; }
+
+/* ══ PAGE HEADER ══ */
+.yoe-page .yoe-page-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  margin-bottom: 1.2rem !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Green title */
+.yoe-page .yoe-page-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #099943 !important;
+  letter-spacing: -0.5px !important;
+  line-height: 1 !important;
+}
+
+/* ══ FILTERS ══ */
+.yoe-page .yoe-filters {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Custom Select */
+.yoe-page .yoe-select { position: relative !important; flex-shrink: 0 !important; }
+.yoe-page .yoe-select-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  height: 38px !important;
+  padding: 0 14px !important;
+  background: #fff !important;
+  border: 1.5px solid #dde1ea !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  min-width: 130px !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+  white-space: nowrap !important;
+}
+.yoe-page .yoe-select-btn:hover,
+.yoe-page .yoe-select-btn.open {
+  border-color: #3dba6f !important;
+  box-shadow: 0 0 0 3px rgba(61,186,111,0.1) !important;
+}
+.yoe-page .yoe-select-btn span { flex: 1 !important; text-align: left !important; }
+.yoe-page .yoe-select-chevron {
+  width: 14px !important; height: 14px !important;
+  color: #94a3b8 !important; flex-shrink: 0 !important;
+  transition: transform 0.2s !important;
+}
+.yoe-page .yoe-select-btn.open .yoe-select-chevron { transform: rotate(180deg) !important; }
+.yoe-page .yoe-select-drop {
+  position: absolute !important;
+  top: calc(100% + 5px) !important;
+  left: 0 !important;
+  min-width: 100% !important;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.13) !important;
+  overflow: hidden !important;
+  z-index: 5000 !important;
+  animation: yoeFadeDown 0.13s ease !important;
+}
+.yoe-page .yoe-select-opt {
+  padding: 11px 16px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #1a1a2e !important;
+  cursor: pointer !important;
+  transition: background 0.1s !important;
+  white-space: nowrap !important;
+}
+.yoe-page .yoe-select-opt:not(:last-child) { border-bottom: 1px solid #f0f2f5 !important; }
+.yoe-page .yoe-select-opt:hover { background: #f5f9f6 !important; }
+.yoe-page .yoe-select-opt.active { background: #3dba6f !important; color: #fff !important; font-weight: 700 !important; }
+
+/* Calendar */
+.yoe-page .yoe-cal { position: relative !important; flex-shrink: 0 !important; }
+.yoe-page .yoe-cal-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  height: 38px !important;
+  padding: 0 12px !important;
+  background: #fff !important;
+  border: 1.5px solid #dde1ea !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  min-width: 140px !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+  white-space: nowrap !important;
+}
+.yoe-page .yoe-cal-btn:hover,
+.yoe-page .yoe-cal-btn.open {
+  border-color: #3dba6f !important;
+  box-shadow: 0 0 0 3px rgba(61,186,111,0.1) !important;
+}
+.yoe-page .yoe-cal-btn span { flex: 1 !important; text-align: left !important; }
+.yoe-page .yoe-cal-icon { width: 14px !important; height: 14px !important; color: #94a3b8 !important; flex-shrink: 0 !important; }
+.yoe-page .yoe-cal-x {
+  font-size: 17px !important; color: #94a3b8 !important;
+  cursor: pointer !important; padding: 0 2px !important;
+  line-height: 1 !important; flex-shrink: 0 !important;
+}
+.yoe-page .yoe-cal-x:hover { color: #334155 !important; }
+
+.yoe-page .yoe-cal-pop {
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  width: 282px !important;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14) !important;
+  z-index: 5001 !important;
+  overflow: hidden !important;
+  animation: yoeFadeDown 0.14s ease !important;
+}
+.yoe-page .yoe-cal-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 16px 10px !important;
+  border-bottom: 1px solid #f0f2f5 !important;
+}
+.yoe-page .yoe-cal-month {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #1a1a2e !important;
+}
+.yoe-page .yoe-cal-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important; height: 28px !important;
+  border-radius: 8px !important;
+  background: #f5f7fa !important;
+  border: 1px solid #e8eaf0 !important;
+  cursor: pointer !important;
+  transition: background 0.12s !important;
+}
+.yoe-page .yoe-cal-nav:hover { background: #e8f5ee !important; border-color: #3dba6f !important; }
+.yoe-page .yoe-cal-grid {
+  display: grid !important;
+  grid-template-columns: repeat(7,1fr) !important;
+  gap: 2px !important;
+  padding: 10px 12px 8px !important;
+}
+.yoe-page .yoe-cal-dh {
+  font-size: 11px !important; font-weight: 700 !important;
+  color: #94a3b8 !important; text-align: center !important;
+  padding: 4px 0 !important;
+  text-transform: uppercase !important; letter-spacing: 0.04em !important;
+}
+.yoe-page .yoe-cal-cell {
+  font-size: 13px !important; font-weight: 500 !important;
+  color: #334155 !important; text-align: center !important;
+  padding: 6px 4px !important; border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.1s, color 0.1s !important;
+  line-height: 1.4 !important;
+}
+.yoe-page .yoe-cal-cell:hover { background: #e8f5ee !important; color: #1a7a45 !important; }
+.yoe-page .yoe-cal-cell.other { color: #c8cdd8 !important; cursor: default !important; }
+.yoe-page .yoe-cal-cell.other:hover { background: none !important; color: #c8cdd8 !important; }
+.yoe-page .yoe-cal-cell.today { color: #3dba6f !important; font-weight: 700 !important; outline: 2px solid #3dba6f !important; outline-offset: -2px !important; }
+.yoe-page .yoe-cal-cell.sel { background: #2563eb !important; color: #fff !important; font-weight: 700 !important; }
+.yoe-page .yoe-cal-foot {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 16px 14px !important;
+  border-top: 1px solid #f0f2f5 !important;
+}
+.yoe-page .yoe-cal-foot-btn {
+  font-size: 13px !important; font-weight: 600 !important;
+  color: #3dba6f !important; background: none !important;
+  border: none !important; cursor: pointer !important;
+  font-family: inherit !important; padding: 4px 8px !important;
+  border-radius: 6px !important; transition: background 0.12s !important;
+}
+.yoe-page .yoe-cal-foot-btn:hover { background: #e8f5ee !important; }
+.yoe-page .yoe-cal-foot-btn.blue { color: #2563eb !important; }
+.yoe-page .yoe-cal-foot-btn.blue:hover { background: #eff6ff !important; }
+
+/* Clear all */
+.yoe-page .yoe-clear-btn {
+  height: 38px !important; padding: 0 14px !important;
+  border: 1.5px solid #dde1ea !important; border-radius: 8px !important;
+  font-size: 13px !important; font-weight: 600 !important;
+  color: #64748b !important; background: #fff !important;
+  cursor: pointer !important; font-family: inherit !important;
+  transition: all 0.15s !important; white-space: nowrap !important;
+}
+.yoe-page .yoe-clear-btn:hover { border-color: #3dba6f !important; color: #3dba6f !important; }
+
+/* Result bar */
+.yoe-page .yoe-result-bar {
+  display: flex !important; align-items: center !important;
+  gap: 8px !important; font-size: 13px !important;
+  color: #64748b !important; margin-bottom: 2rem !important;
+  font-weight: 500 !important;
+}
+.yoe-page .yoe-result-bar strong { color: #1a1a2e !important; font-weight: 700 !important; }
+.yoe-page .yoe-dot {
+  width: 6px !important; height: 6px !important;
+  background: #3dba6f !important; border-radius: 50% !important;
+  display: inline-block !important; flex-shrink: 0 !important;
+}
+
+/* ══════════════════════════════════════
+   TIMELINE — FIXED SPACING & LAYOUT
+══════════════════════════════════════ */
+.yoe-page .yoe-timeline {
+  position: relative !important;
+  padding-bottom: 20px !important;
+}
+
+/* The central vertical line */
+.yoe-page .yoe-tl-line {
+  position: absolute !important;
+  left: 50% !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 2px !important;
+  background: #d1d5db !important;
+  transform: translateX(-50%) !important;
+  z-index: 0 !important;
+}
+
+/* Each row in the timeline */
+.yoe-page .yoe-tl-row {
+  display: grid !important;
+  /* 3 columns: left card area | center spine | right card area */
+  grid-template-columns: 1fr 120px 1fr !important;
+  align-items: start !important;
+  margin-bottom: 28px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  animation: yoeFadeUp 0.4s ease both !important;
+}
+
+/* The center spine column */
+.yoe-page .yoe-tl-mid {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding-top: 28px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* The dot on the line */
+.yoe-page .yoe-tl-dot {
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  border: 2.5px solid #9ca3af !important;
+  box-shadow: 0 0 0 4px #fff !important;
+  flex-shrink: 0 !important;
+}
+
+/* Date pill */
+.yoe-page .yoe-tl-pill {
+  background: #0a8d3e !important;
+  color: #fff !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  padding: 5px 14px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.02em !important;
+  text-align: center !important;
+}
+
+/* Left card column (grid cell 1) — pad right so card doesn't touch spine */
+.yoe-page .yoe-tl-left-col {
+  padding-right: 28px !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+/* Right card column (grid cell 3) — pad left so card doesn't touch spine */
+.yoe-page .yoe-tl-right-col {
+  padding-left: 28px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+/* Empty placeholder cell */
+.yoe-page .yoe-tl-empty {
+  /* intentionally blank */
+}
+
+/* ══ CARD ══ */
+.yoe-page .yoe-tl-card {
+  background: #1a2744  !important;
+  border-radius: 8px !important;
+  padding: 22px 24px 18px !important;
+  cursor: pointer !important;
+  position: relative !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  width: 100% !important;
+}
+.yoe-page .yoe-tl-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.25) !important;
+}
+
+/* Arrow pointing RIGHT (card on left side → arrow points toward center) */
+.yoe-page .yoe-tl-left-col .yoe-tl-card::after {
+  content: '' !important;
+  position: absolute !important;
+  right: -13px !important;
+  top: 38px !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 13px solid #1a2744 !important;
+  border-top: 11px solid transparent !important;
+  border-bottom: 11px solid transparent !important;
+}
+
+/* Arrow pointing LEFT (card on right side → arrow points toward center) */
+.yoe-page .yoe-tl-right-col .yoe-tl-card::after {
+  content: '' !important;
+  position: absolute !important;
+  left: -13px !important;
+  top: 38px !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-right: 13px solid #1a2744 !important;
+  border-top: 11px solid transparent !important;
+  border-bottom: 11px solid transparent !important;
+}
+
+.yoe-page .yoe-card-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+  margin-bottom: 10px !important;
+  letter-spacing: -0.2px !important;
+}
+.yoe-page .yoe-card-body {
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  color: rgba(255,255,255,0.68) !important;
+  margin-bottom: 14px !important;
+}
+.yoe-page .yoe-card-club-row {
+  display: flex !important;
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(255,255,255,0.1) !important;
+}
+.yoe-page .yoe-club-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+}
+
+/* Type badges */
+.yoe-page .yoe-badge {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 3px 9px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+.yoe-page .yoe-badge.event    { background: #faeeda !important; color: #854F0B !important; }
+.yoe-page .yoe-badge.general  { background: #e6f1fb !important; color: #185FA5 !important; }
+.yoe-page .yoe-badge.reminder { background: #eeedfe !important; color: #534AB7 !important; }
+
+/* Empty state */
+.yoe-page .yoe-empty {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 4rem 1rem !important;
+  text-align: center !important;
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+}
+.yoe-page .yoe-empty svg { opacity: 0.3 !important; }
+
+/* Skeleton */
+.yoe-page .yoe-skel-card {
+  background: #1a2744 !important;
+  border-radius: 8px !important;
+  padding: 22px 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+.yoe-page .yoe-skel-line {
+  height: 13px !important;
+  border-radius: 6px !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.07) 25%, rgba(255,255,255,0.13) 50%, rgba(255,255,255,0.07) 75%) !important;
+  background-size: 200% 100% !important;
+  animation: yoeShimmer 1.4s infinite !important;
+  width: 75% !important;
+}
+.yoe-page .yoe-skel-line.w { width: 90% !important; height: 18px !important; }
+.yoe-page .yoe-skel-line.s { width: 45% !important; }
+
+/* ══ DETAIL CARD ══ */
+.yoe-page .yoe-detail-card {
+  background: #fff !important;
+  border: 1px solid #e3ddd4 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06) !important;
+  animation: yoeFadeUp 0.25s ease !important;
+}
+.yoe-page .yoe-detail-top { padding: 1.75rem 1.75rem 1.25rem !important; }
+.yoe-page .yoe-detail-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #172D3D !important;
+  line-height: 1.3 !important;
+  margin: 8px 0 6px !important;
+}
+.yoe-page .yoe-detail-date { font-size: 12px !important; color: #94a3b8 !important; font-weight: 500 !important; }
+.yoe-page .yoe-detail-div { height: 1px !important; background: #f1f5f9 !important; }
+.yoe-page .yoe-detail-content {
+  padding: 1.5rem 1.75rem !important;
+  font-size: 14.5px !important;
+  line-height: 1.8 !important;
+  color: #334155 !important;
+  white-space: pre-wrap !important;
+}
+.yoe-page .yoe-detail-attach { padding: 0 1.75rem 1.5rem !important; }
+.yoe-page .yoe-attach-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 18px !important;
+  border: 1.5px solid #bfdbfe !important;
+  border-radius: 8px !important;
+  background: #eff6ff !important;
+  color: #2563eb !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.15s !important;
+}
+.yoe-page .yoe-attach-btn:hover { background: #dbeafe !important; border-color: #93c5fd !important; }
+
+/* Bottom meta */
+.yoe-page .yoe-detail-meta {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0 !important;
+  padding: 14px 1.75rem !important;
+  background: #f9fafb !important;
+  border-top: 1px solid #f1f5f9 !important;
+}
+.yoe-page .yoe-meta-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding-right: 20px !important;
+}
+.yoe-page .yoe-meta-label { font-size: 13px !important; color: #1a1a2e !important; font-weight: 600 !important; white-space: nowrap !important; }
+.yoe-page .yoe-meta-val   { font-size: 13px !important; color: #1a1a2e !important; font-weight: 500 !important; white-space: nowrap !important; }
+.yoe-page .yoe-meta-val.bold { color: #1a1a2e !important; font-weight: 700 !important; }
+.yoe-page .yoe-meta-sep { width: 1px !important; height: 18px !important; background: #e2e8f0 !important; margin-right: 20px !important; flex-shrink: 0 !important; }
+.yoe-page .yoe-club-badge { display: inline-block !important;color: #1a1a2e !important; font-size: 11px !important; font-weight: 600 !important; padding: 2px 10px !important; border-radius: 20px !important; }
+
+/* ══ ANIMATIONS ══ */
+@keyframes yoeFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes yoeShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes yoeFadeDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 768px) {
+  .yoe-page .yoe-hamburger { display: flex !important; }
+  .yoe-page .yoe-navbar-cats { display: none !important; }
+
+  /* Stack timeline vertically on mobile */
+  .yoe-page .yoe-tl-row {
+    grid-template-columns: 40px 1fr !important;
+    grid-template-rows: auto !important;
+    margin-bottom: 32px !important;
+  }
+  .yoe-page .yoe-tl-line { left: 19px !important; }
+  .yoe-page .yoe-tl-mid {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    padding-top: 22px !important;
+    width: 40px !important;
+    align-items: center !important;
+  }
+  .yoe-page .yoe-tl-pill {
+    display: none !important; /* hidden on mobile, shown above card instead */
+  }
+  .yoe-page .yoe-tl-left-col,
+  .yoe-page .yoe-tl-right-col {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    padding-left: 16px !important;
+    padding-right: 0 !important;
+    justify-content: flex-start !important;
+  }
+  .yoe-page .yoe-tl-empty { display: none !important; }
+  .yoe-page .yoe-tl-left-col .yoe-tl-card::after,
+  .yoe-page .yoe-tl-right-col .yoe-tl-card::after {
+    left: -11px !important;
+    right: auto !important;
+    border-right: 11px solid #1a2744 !important;
+    border-left: none !important;
+    top: 26px !important;
+  }
+
+  .yoe-page .yoe-top-bar-search { width: 160px !important; }
+  .yoe-page .yoe-page-header { flex-direction: column !important; align-items: flex-start !important; }
+  .yoe-page .yoe-detail-meta { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+  .yoe-page .yoe-meta-sep { width: 100% !important; height: 1px !important; margin: 0 !important; }
+}
+
+@media (max-width: 560px) {
+  .yoe-page .yoe-body { padding: 1.25rem 1rem 3rem !important; }
+  .yoe-page .yoe-page-title { font-size: 26px !important; }
+  .yoe-page .yoe-top-bar-search { display: none !important; }
+  .yoe-page .yoe-filters { flex-direction: column !important; align-items: stretch !important; }
+  .yoe-page .yoe-cal-pop { width: 260px !important; }
+}
+/* ══ RESPONSIVE IMPROVEMENTS ══ */
+@media (max-width: 768px) {
+  /* Top bar */
+  .yoe-page .yoe-top-bar {
+    padding: 0 12px !important;
+    height: auto !important;
+    min-height: 42px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .yoe-page .yoe-top-bar-search { display: none !important; }
+  .yoe-page .yoe-top-bar-logout { padding: 4px 12px !important; font-size: 12px !important; }
+
+  /* Navbar */
+  .yoe-page .yoe-navbar { top: 0 !important; }
+  .yoe-page .yoe-navbar-left { padding-left: 12px !important; }
+  .yoe-page .yoe-navbar-logo { width: 48px !important; height: 48px !important; }
+  .yoe-page .yoe-navbar-logo img { width: 48px !important; height: 48px !important; }
+  .yoe-page .yoe-navbar-brand { font-size: 13px !important; }
+  .yoe-page .yoe-navbar-right { padding-right: 12px !important; }
+
+  /* Hamburger panel */
+  .yoe-page .pub-ham-panel {
+    flex-direction: column !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    top: 42px !important;
+  }
+  .yoe-page .pub-ham-cats-side { width: 100% !important; max-height: 220px !important; }
+  .yoe-page .pub-ham-clubs-side { width: 100% !important; max-height: 220px !important; }
+  .yoe-page .pub-ham-divider { width: 100% !important; height: 0.5px !important; }
+
+  /* Body & header */
+  .yoe-page .yoe-body { padding: 1.25rem 1rem 3rem !important; }
+  .yoe-page .yoe-page-header { gap: 12px !important; }
+  .yoe-page .yoe-page-title { font-size: 28px !important; }
+  .yoe-page .yoe-filters { width: 100% !important; }
+
+  /* Card */
+  .yoe-page .yoe-tl-card { padding: 16px 18px 14px !important; }
+  .yoe-page .yoe-card-title { font-size: 16px !important; }
+
+  /* Detail */
+  .yoe-page .yoe-detail-top { padding: 1.25rem !important; }
+  .yoe-page .yoe-detail-content { padding: 1.25rem !important; }
+  .yoe-page .yoe-detail-attach { padding: 0 1.25rem 1.25rem !important; }
+  .yoe-page .yoe-detail-meta { padding: 12px 1.25rem !important; }
+}
+
+@media (max-width: 480px) {
+  .yoe-page .yoe-page-title { font-size: 24px !important; }
+  .yoe-page .yoe-filters { flex-direction: column !important; align-items: stretch !important; }
+  .yoe-page .yoe-select-btn,
+  .yoe-page .yoe-cal-btn,
+  .yoe-page .yoe-clear-btn { width: 100% !important; }
+  .yoe-page .yoe-body { padding: 1rem 0.75rem 3rem !important; }
+}
+
+/* ══ FINAL FIXES ══ */
+
+/* 1. Filters — one line on desktop, smaller widths */
+.yoe-page .yoe-page-header {
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+.yoe-page .yoe-filters {
+  flex-wrap: nowrap !important;
+  flex-shrink: 0 !important;
+}
+.yoe-page .yoe-select-btn { min-width: 110px !important; }
+.yoe-page .yoe-cal-btn    { min-width: 120px !important; }
+
+/* 2. Hamburger panel — match public page exactly */
+.yoe-page .pub-hamburger-wrap { position: relative !important; flex-shrink: 0 !important; }
+.yoe-page .pub-hamburger-btn {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  gap: 5px !important; width: 38px !important; height: 38px !important;
+  background: rgba(255,255,255,.15) !important;
+  border: 0.5px solid rgba(255,255,255,.3) !important;
+  border-radius: 8px !important; cursor: pointer !important;
+  padding: 0 !important; transition: background .15s !important;
+}
+.yoe-page .pub-hamburger-btn:hover { background: rgba(255,255,255,.25) !important; }
+.yoe-page .pub-hamburger-btn span {
+  display: block !important; width: 18px !important; height: 2px !important;
+  background: #fff !important; border-radius: 2px !important;
+  transition: transform .3s ease, opacity .3s ease !important;
+}
+.yoe-page .pub-hamburger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px) !important; }
+.yoe-page .pub-hamburger-btn.open span:nth-child(2) { opacity: 0 !important; }
+.yoe-page .pub-hamburger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px) !important; }
+
+.yoe-page .pub-ham-panel {
+  position: fixed !important; top: 104px !important; right: 0 !important;
+  display: flex !important; flex-direction: row !important;
+  background: #fff !important; border-radius: 0 0 0 14px !important;
+  box-shadow: -4px 8px 40px rgba(0,0,0,.18) !important;
+  border-left: 0.5px solid #e2dfd8 !important;
+  border-bottom: 0.5px solid #e2dfd8 !important;
+  z-index: 9998 !important; max-height: calc(100vh - 110px) !important;
+  overflow: hidden !important; align-items: flex-start !important;
+  animation: yoeHamDrop .18s ease !important;
+}
+.yoe-page .pub-ham-cats-side {
+  width: 230px !important; padding: 16px !important;
+  overflow-y: auto !important; background: #fafaf8 !important;
+}
+.yoe-page .pub-ham-clubs-side {
+  width: 190px !important; padding: 16px !important; overflow-y: auto !important;
+}
+.yoe-page .pub-ham-side-title {
+  font-size: 10px !important; font-weight: 700 !important; color: #aaa !important;
+  letter-spacing: 1px !important; text-transform: uppercase !important;
+  margin-bottom: 12px !important; padding-bottom: 8px !important;
+  border-bottom: 0.5px solid #e2dfd8 !important;
+}
+.yoe-page .pub-ham-cat-row {
+  display: flex !important; align-items: center !important;
+  justify-content: space-between !important; padding: 10px 12px !important;
+  cursor: pointer !important; border-radius: 8px !important;
+  transition: background .12s !important; border-left: 3px solid transparent !important;
+  margin-bottom: 2px !important;
+}
+.yoe-page .pub-ham-cat-row:hover { background: #f0ede6 !important; }
+.yoe-page .pub-ham-cat-row.active {
+  background: #f0ede6 !important; border-left-color: #c9a84c !important;
+  font-weight: 600 !important;
+}
+.yoe-page .pub-ham-cat-name { font-size: 13px !important; color: #222 !important; }
+.yoe-page .pub-ham-cat-badge {
+  font-size: 11px !important; font-weight: 700 !important;
+  background: #e2dfd8 !important; color: #888 !important;
+  padding: 2px 8px !important; border-radius: 999px !important;
+  min-width: 22px !important; text-align: center !important;
+}
+.yoe-page .pub-ham-cat-row.active .pub-ham-cat-badge {
+  background: #0c1b33 !important; color: #c9a84c !important;
+}
+.yoe-page .pub-ham-divider {
+  width: 0.5px !important; background: #e2dfd8 !important;
+  flex-shrink: 0 !important; align-self: stretch !important;
+}
+.yoe-page .pub-ham-clubs-list { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+.yoe-page .pub-ham-club-card {
+  padding: 12px 14px !important; background: #f9f8f4 !important;
+  border: 0.5px solid #e2dfd8 !important; border-radius: 10px !important;
+  font-size: 13px !important; font-weight: 600 !important;
+  color: #1a1a1a !important; cursor: pointer !important; transition: all .15s !important;
+}
+.yoe-page .pub-ham-club-card:hover {
+  background: #0c1b33 !important; color: #c9a84c !important; border-color: #0c1b33 !important;
+}
+.yoe-page .pub-ham-empty { font-size: 13px !important; color: #bbb !important; padding: 20px 0 !important; text-align: center !important; }
+
+/* Mobile overrides for hamburger */
+@media (max-width: 768px) {
+  .yoe-page .pub-ham-panel {
+    flex-direction: column !important; width: 100% !important;
+    border-radius: 0 !important; top: 42px !important;
+  }
+  .yoe-page .pub-ham-cats-side { width: 100% !important; max-height: 200px !important; }
+  .yoe-page .pub-ham-clubs-side { width: 100% !important; max-height: 200px !important; }
+  .yoe-page .pub-ham-divider { width: 100% !important; height: 0.5px !important; }
+  /* Filters stack on mobile */
+  .yoe-page .yoe-page-header { flex-wrap: wrap !important; }
+  .yoe-page .yoe-filters { flex-wrap: wrap !important; }
+}
+@media (max-width: 480px) {
+  .yoe-page .yoe-filters { flex-direction: column !important; align-items: stretch !important; }
+  .yoe-page .yoe-select-btn, .yoe-page .yoe-cal-btn, .yoe-page .yoe-clear-btn { width: 100% !important; min-width: unset !important; }
+}
+
+/* ══ FILTERS ALWAYS ONE LINE ══ */
+.yoe-page .yoe-filters {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+}
+.yoe-page .yoe-select-btn {
+  min-width: 0 !important;
+  width: auto !important;
+  font-size: 12px !important;
+  padding: 0 10px !important;
+}
+.yoe-page .yoe-cal-btn {
+  min-width: 0 !important;
+  width: auto !important;
+  font-size: 12px !important;
+  padding: 0 10px !important;
+}
+.yoe-page .yoe-clear-btn {
+  width: auto !important;
+  font-size: 12px !important;
+  padding: 0 10px !important;
+}
+@media (max-width: 768px) {
+  .yoe-page .yoe-navbar-right { margin-left: auto !important; }
+}

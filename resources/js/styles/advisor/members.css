@@ -1,0 +1,590 @@
+/* ============================================================
+   JNEC – Advisor Members Page
+   File: members.css
+   ============================================================ */
+
+.mem-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 14px;
+  color: #1e2a3a;
+}
+
+/* ── Stats Row ── */
+.mem-stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.mem-stat-card {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mem-stat-card:hover {
+  border-color: #2d5be3;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.08);
+}
+.mem-stat-card.active {
+  border-color: #2d5be3;
+  background: #f0f4ff;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.12);
+}
+.mem-stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #1e2a3a;
+  margin-bottom: 6px;
+}
+.mem-stat-card.active .mem-stat-label { color: #2d5be3; }
+.mem-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d0d0d;
+  line-height: 1;
+}
+.mem-stat-card.active .mem-stat-value { color: #2d5be3; }
+
+/* ── Tabs ── */
+.mem-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.mem-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  border: 1.5px solid #e8eaf0;
+  background: #fff;
+  color: #1e2a3a;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.mem-tab-btn:hover {
+  border-color: #2d5be3;
+  color: #2d5be3;
+  background: #f5f8ff;
+}
+.mem-tab-btn.active {
+  background: #172D3D;
+  color: #fff;
+  border-color: #172D3D;
+  box-shadow: 0 2px 8px rgba(23,45,61,0.18);
+}
+.mem-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #eef1fb;
+  color: #2d5be3;
+}
+.mem-tab-btn.active .mem-tab-count {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.mem-tab-count.inactive {
+  background: #fef3c7;
+  color: #b45309;
+}
+.mem-tab-btn.active .mem-tab-count.inactive {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+/* ── Search ── */
+.mem-search-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+.mem-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #4a5568;
+  pointer-events: none;
+}
+.mem-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: #0d0d0d;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+.mem-search-input:focus {
+  border-color: #2d5be3;
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.1);
+}
+.mem-search-input::placeholder { color: #6b7a8d; }
+
+/* ── Bulk Banner ── */
+.mem-bulk-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff8f0;
+  border: 1.5px solid #fde3c0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c3d00;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.mem-bulk-actions { display: flex; align-items: center; gap: 10px; }
+.mem-btn-clear {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e2a3a;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+.mem-btn-clear:hover { background: #f0f2f5; }
+.mem-btn-delete-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #e53e3e;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.mem-btn-delete-all:hover { background: #c53030; }
+
+/* ── Table ── */
+.mem-table-wrap {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 12px;
+  overflow: visible;
+  margin-bottom: 20px;
+}
+.mem-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+.mem-table thead tr {
+  background: #f8f9fb;
+  border-bottom: 1.5px solid #e8eaf0;
+}
+.mem-table th {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #1e2a3a;
+  text-align: left;
+  white-space: nowrap;
+}
+.col-check { width: 44px; }
+.mem-table tbody tr {
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.12s;
+}
+.mem-table tbody tr:last-child { border-bottom: none; }
+.mem-table tbody tr:hover { background: #f8f9fb; }
+.mem-table tbody tr.row-selected { background: #f5f8ff; }
+.mem-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #111827;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.mem-check {
+  width: 16px;
+  height: 16px;
+  accent-color: #2d5be3;
+  cursor: pointer;
+}
+
+/* ── Member Cell ── */
+.mem-member-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mem-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.mem-avatar-clickable {
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.mem-avatar-clickable:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px rgba(45,91,227,0.22);
+}
+.mem-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+}
+.mem-year {
+  font-size: 12px;
+  color: #4a5568;
+  margin-top: 1px;
+}
+
+/* ── 3-Dot Menu ── */
+.mem-threedot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+.mem-threedot-btn:hover {
+  background: #f0f2f5;
+  border-color: #e8eaf0;
+}
+.mem-threedot-btn span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4a5568;
+  transition: background 0.15s;
+}
+.mem-threedot-btn:hover span { background: #172D3D; }
+
+.mem-threedot-dropdown {
+  background: #fff;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 99999;
+  min-width: 180px;
+  overflow: hidden;
+  animation: memDropIn 0.15s ease;
+}
+@keyframes memDropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.mem-threedot-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #1e2a3a;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.12s, color 0.12s;
+  box-sizing: border-box;
+}
+.mem-threedot-item:hover { background: #f5f7fa; color: #111827; }
+.mem-threedot-item.danger { color: #c53030; }
+.mem-threedot-item.danger:hover { background: #fff5f5; color: #9b1c1c; }
+.mem-threedot-icon { display: flex; align-items: center; flex-shrink: 0; }
+
+/* ── Info bar ── */
+.mem-info-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: 10px;
+  padding: 11px 16px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #7c3d00;
+  font-weight: 500;
+}
+.mem-removed-date {
+  font-size: 12px;
+  color: #4a5568;
+}
+
+/* ── Empty state ── */
+.mem-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #4a5568;
+}
+.mem-empty svg { margin: 0 auto 12px; display: block; }
+.mem-empty p { font-size: 14px; }
+
+/* ── Profile Modal ── */
+.mem-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.30);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: memFadeIn 0.18s ease;
+}
+@keyframes memFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.mem-modal {
+  background: #fff;
+  border-radius: 18px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  overflow: hidden;
+  animation: memSlideUp 0.22s cubic-bezier(0.22,1,0.36,1);
+}
+@keyframes memSlideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.mem-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 0;
+}
+.mem-modal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+.mem-modal-close {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #e8eaf0;
+  border-radius: 7px;
+  background: #fff;
+  font-size: 18px;
+  color: #4a5568;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.14s, color 0.14s;
+  font-family: inherit;
+}
+.mem-modal-close:hover { background: #f0f2f5; color: #111827; }
+.mem-modal-avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 20px;
+  gap: 10px;
+}
+.mem-modal-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+}
+.mem-modal-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+.mem-modal-fields { border-top: 1.5px solid #f0f2f5; }
+.mem-modal-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 20px;
+  border-bottom: 1px solid #f0f2f5;
+  gap: 12px;
+}
+.mem-modal-field:last-child { border-bottom: none; }
+.mem-modal-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #6b7a8d;
+  flex-shrink: 0;
+}
+.mem-modal-field-value {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #111827;
+  text-align: right;
+  word-break: break-all;
+}
+
+/* ── SweetAlert ── */
+.swal-custom-popup {
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  border-radius: 16px !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+}
+.swal-custom-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1a1a2e !important;
+}
+
+/* ══ RESPONSIVE ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Stats — 2 columns */
+  .mem-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+  .mem-stat-value { font-size: 22px; }
+  .mem-stat-card  { padding: 12px 14px; }
+
+  /* Tabs */
+  .mem-tabs { flex-wrap: wrap; }
+  .mem-tab-btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* Bulk banner */
+  .mem-bulk-banner { flex-direction: column; align-items: flex-start; }
+  .mem-bulk-actions { width: 100%; }
+  .mem-btn-delete-all { flex: 1; justify-content: center; }
+
+  /* Table — horizontal scroll */
+  .mem-table-wrap {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+  }
+  .mem-table {
+    min-width: 560px;
+  }
+
+  /* ── Freeze checkbox column ── */
+  .mem-table thead th:nth-child(1),
+  .mem-table tbody td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    background: #f8f9fb;
+    z-index: 2;
+  }
+  .mem-table tbody td:nth-child(1) {
+    background: #fff;
+  }
+  .mem-table tbody tr.row-selected td:nth-child(1) {
+    background: #f5f8ff;
+  }
+  .mem-table tbody tr:hover td:nth-child(1) {
+    background: #f8f9fb;
+  }
+
+  /* ── Freeze MEMBER column ── */
+  .mem-table thead th:nth-child(2),
+  .mem-table tbody td:nth-child(2) {
+    position: sticky;
+    left: 44px;
+    background: #f8f9fb;
+    z-index: 2;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.07);
+  }
+  .mem-table tbody td:nth-child(2) {
+    background: #fff;
+  }
+  .mem-table tbody tr.row-selected td:nth-child(2) {
+    background: #f5f8ff;
+  }
+  .mem-table tbody tr:hover td:nth-child(2) {
+    background: #f8f9fb;
+  }
+
+  /* ── Dropdown always renders outside table via fixed position in JSX ── */
+  .mem-threedot-dropdown {
+    position: fixed !important;
+    z-index: 99999 !important;
+  }
+
+  .mem-table td { font-size: 13px; padding: 10px 12px; }
+  .mem-table th { padding: 10px 12px; font-size: 11px; }
+  .mem-name { font-size: 13px; }
+  .mem-year { font-size: 11px; }
+  .mem-search-input { font-size: 13px; }
+  .mem-modal { width: calc(100vw - 32px); }
+}
+
+@media (max-width: 480px) {
+  .mem-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+  .mem-stat-value { font-size: 20px; }
+  .mem-stat-label { font-size: 9px; }
+  .mem-stat-card  { padding: 10px 12px; }
+}
+
+@media (max-width: 400px) {
+  .mem-stats-row { grid-template-columns: 1fr !important; }
+}

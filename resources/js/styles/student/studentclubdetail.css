@@ -1,0 +1,148 @@
+/* studentclubdetail.css */
+
+.scd-page-wrap { width: 100%; max-width: none; padding: 1.5rem 3rem 0; }
+
+/* LOADING */
+.scd-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 16px; color: #aaa; font-size: 14px; }
+.scd-spinner { width: 28px; height: 28px; border: 3px solid #e8e5de; border-top-color: #c9a84c; border-radius: 50%; animation: scdSpin .7s linear infinite; }
+@keyframes scdSpin { to { transform: rotate(360deg); } }
+
+/* BREADCRUMB */
+.scd-breadcrumb { display: flex; align-items: center; gap: 6px; margin-bottom: 1.25rem; font-size: 13px; }
+.scd-bc-link { color: #0c1b33; cursor: pointer; font-weight: 500; transition: color .15s; }
+.scd-bc-link:hover { color: #c9a84c; }
+.scd-bc-sep { color: #bbb; }
+.scd-bc-cur { color: #888; }
+
+/* BANNER */
+.scd-banner { position: relative; border-radius: 16px; overflow: hidden; margin-bottom: 1.75rem; background: #0c1b33; min-height: 180px; }
+.scd-banner-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.scd-banner-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(6,11,28,.88) 0%, rgba(8,18,40,.72) 60%, rgba(6,11,28,.82) 100%); z-index: 1; }
+.scd-banner-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 1.5rem; padding: 2rem; flex-wrap: wrap; }
+.scd-banner-avatar { width: 72px; height: 72px; border-radius: 16px; border: 2px solid rgba(201,168,76,.4); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #c9a84c; background: rgba(12,27,51,.6); flex-shrink: 0; }
+.scd-banner-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.scd-banner-cat { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: rgba(201,168,76,.15); color: #c9a84c; border: 0.5px solid rgba(201,168,76,.3); align-self: flex-start; }
+.scd-banner-name { font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; margin: 0; }
+.scd-banner-meta { font-size: 13px; color: rgba(255,255,255,.5); display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.scd-meta-dot { color: rgba(255,255,255,.3); }
+.scd-banner-action { margin-left: auto; flex-shrink: 0; }
+.scd-join-btn { background: #c9a84c; color: #0c1b33; padding: 12px 28px; border-radius: 9px; font-size: 14px; font-weight: 800; border: none; cursor: pointer; transition: all .15s; white-space: nowrap; font-family: inherit; }
+.scd-join-btn:hover:not(:disabled) { background: #d4b55e; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,.35); }
+.scd-join-btn.already-joined { background: #e8f5e9; color: #2e7d32; cursor: default; border: 1.5px solid #a5d6a7; }
+
+/* SECTIONS */
+.scd-body { padding-bottom: 2rem; }
+.scd-section { background: #fff; border: 0.5px solid #e2dfd8; border-radius: 14px; padding: 1.75rem; margin-bottom: 1.25rem; }
+.scd-section-label { font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: #0c1b33; margin-bottom: 10px; }
+.scd-section-divider { height: 0.5px; background: #e2dfd8; margin-bottom: 14px; }
+.scd-section-text { font-size: 14px; color: #333; line-height: 1.78; }
+.scd-objectives { list-style: none; padding: 0; margin: 0; }
+.scd-obj-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.scd-obj-num { width: 22px; height: 22px; border-radius: 50%; background: #0c1b33; color: #c9a84c; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.scd-obj-text { font-size: 14px; color: #333; line-height: 1.65; }
+
+/* ALBUMS */
+.scd-albums-section { margin-top: 1rem; }
+.scd-albums-header { margin-bottom: 1.5rem; }
+.scd-albums-title { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.scd-albums-sub { font-size: 13px; color: #aaa; }
+.scd-albums-loading { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 3rem; color: #aaa; font-size: 14px; }
+.scd-no-albums { text-align: center; padding: 3rem; color: #aaa; }
+.scd-no-albums p { font-size: 15px; font-weight: 500; margin-bottom: 6px; color: #888; }
+.scd-no-albums span { font-size: 13px; }
+.scd-albums-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.scd-album-card { background: #f9f8f4; border: 0.5px solid #e2dfd8; border-radius: 14px; padding: 1.5rem; }
+.scd-album-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+.scd-album-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.scd-album-meta { font-size: 12px; color: #aaa; display: flex; align-items: center; gap: 6px; }
+.scd-album-dot { color: #ddd; }
+.scd-album-count { font-size: 12px; color: #aaa; background: #eee; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.scd-album-caption { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 14px; }
+.scd-album-images { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.scd-album-img-wrap { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; background: #e8e5de; }
+.scd-album-img { width: 100%; height: 100%; object-fit: cover; transition: transform .2s; }
+.scd-album-img-wrap:hover .scd-album-img { transform: scale(1.05); }
+.scd-img-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .2s; }
+.scd-album-img-wrap:hover .scd-img-overlay { opacity: 1; }
+
+/* ===== LIGHTBOX MODAL ===== */
+.scd-lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.scd-lightbox-modal { background: #fff; border-radius: 16px; width: 100%; max-width: 780px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.25); animation: scdLbUp .2s ease; display: flex; flex-direction: column; }
+@keyframes scdLbUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Modal top bar */
+.scd-lb-topbar { display: flex; align-items: flex-start; justify-content: space-between; padding: 1.1rem 1.25rem; border-bottom: 0.5px solid #e8e5de; flex-shrink: 0; }
+.scd-lb-info { display: flex; flex-direction: column; gap: 2px; }
+.scd-lb-album-title { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+.scd-lb-album-meta { font-size: 12px; color: #aaa; }
+.scd-lb-close { background: #f0ede8; border: none; color: #555; font-size: 13px; font-weight: 600; padding: 7px 18px; border-radius: 8px; cursor: pointer; font-family: inherit; transition: background .15s; flex-shrink: 0; }
+.scd-lb-close:hover { background: #e2dfd8; color: #1a1a1a; }
+
+/* Image area */
+.scd-lb-img-area { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; padding: 1.25rem 3rem; }
+.scd-lb-img { max-width: 100%; max-height: 420px; object-fit: contain; border-radius: 10px; display: block; }
+.scd-lb-prev { position: absolute; left: 10px; background: #f0ede8; border: none; color: #333; font-size: 22px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+.scd-lb-next { position: absolute; right: 10px; background: #f0ede8; border: none; color: #333; font-size: 22px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+.scd-lb-prev:hover, .scd-lb-next:hover { background: #e2dfd8; }
+
+/* Caption + counter */
+.scd-lb-caption-row { padding: 0 1.25rem 0.75rem; display: flex; align-items: center; justify-content: space-between; }
+.scd-lb-caption { font-size: 13px; color: #555; }
+.scd-lb-counter { font-size: 12px; color: #aaa; }
+
+/* Thumbnails */
+.scd-lb-thumbs { display: flex; gap: 8px; padding: 10px 1.25rem 1.25rem; border-top: 0.5px solid #e8e5de; overflow-x: auto; flex-shrink: 0; scrollbar-width: none; }
+.scd-lb-thumbs::-webkit-scrollbar { display: none; }
+.scd-lb-thumb { width: 58px; height: 58px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; transition: border-color .15s; }
+.scd-lb-thumb.active { border-color: #0c1b33; }
+.scd-lb-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ENROLLMENT MODAL */
+.scd-enroll-overlay { position: fixed; inset: 0; background: rgba(6,10,20,.75); z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+.scd-enroll-modal { background: #fff; border-radius: 16px; width: 100%; max-width: 420px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.25); animation: scdEnrollUp .2s ease; }
+@keyframes scdEnrollUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.scd-enroll-modal-top { background: #0c1b33; padding: 1.5rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.scd-enroll-modal-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.scd-enroll-modal-sub { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+.scd-enroll-modal-sub strong { color: #c9a84c; }
+.scd-enroll-modal-x { width: 28px; height: 28px; background: rgba(255,255,255,.1); border: none; border-radius: 7px; cursor: pointer; font-size: 14px; color: rgba(255,255,255,.6); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: inherit; }
+.scd-enroll-modal-x:hover { background: rgba(255,255,255,.2); color: #fff; }
+.scd-enroll-modal-body { padding: 1.5rem; }
+.scd-enroll-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: #555; margin-bottom: 8px; }
+.scd-enroll-input-wrap { position: relative; display: flex; align-items: center; margin-bottom: 8px; }
+.scd-enroll-input { width: 100%; padding: 12px 44px 12px 14px; border-radius: 10px; border: 1.5px solid #e0ddd8; font-size: 14px; color: #1a1a1a; background: #fafaf8; outline: none; font-family: inherit; transition: border .15s; letter-spacing: 1px; }
+.scd-enroll-input:focus { border-color: #0c1b33; background: #fff; }
+.scd-enroll-input.error { border-color: #e05555; }
+.scd-enroll-input.success { border-color: #2e7d32; background: #f1f8e9; }
+.scd-enroll-input::placeholder { color: #bbb; letter-spacing: 0; }
+.scd-enroll-eye { position: absolute; right: 12px; background: none; border: none; cursor: pointer; color: #aaa; display: flex; align-items: center; padding: 4px; }
+.scd-enroll-eye:hover { color: #555; }
+.scd-enroll-error { font-size: 12px; color: #e05555; font-weight: 500; margin-bottom: 8px; }
+.scd-enroll-success { font-size: 12px; color: #2e7d32; font-weight: 600; margin-bottom: 8px; }
+.scd-enroll-hint { font-size: 12px; color: #aaa; line-height: 1.5; margin-top: 4px; }
+.scd-enroll-modal-footer { padding: 1rem 1.5rem; border-top: 0.5px solid #eee; display: flex; align-items: center; justify-content: flex-end; gap: 10px; background: #fafaf8; }
+.scd-enroll-cancel { background: #eee; color: #555; padding: 10px 20px; border-radius: 9px; font-size: 13px; font-weight: 500; border: none; cursor: pointer; font-family: inherit; }
+.scd-enroll-cancel:hover { background: #e0ddd8; }
+.scd-enroll-submit { background: #0c1b33; color: #c9a84c; padding: 10px 26px; border-radius: 9px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: all .15s; font-family: inherit; }
+.scd-enroll-submit:hover:not(:disabled) { background: #172d52; }
+.scd-enroll-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .scd-page-wrap { padding: 1rem 0 0; }
+  .scd-breadcrumb { padding: 0 1rem; }
+  .scd-body { padding: 0 1rem 2rem; }
+  .scd-banner { margin: 0 1rem 1.25rem; border-radius: 12px; }
+  .scd-banner-content { padding: 1.25rem; gap: 1rem; }
+  .scd-banner-name { font-size: 22px; }
+  .scd-banner-action { width: 100%; }
+  .scd-join-btn { width: 100%; text-align: center; }
+  .scd-lightbox-overlay { padding: 0; align-items: flex-end; }
+  .scd-lightbox-modal { border-radius: 20px 20px 0 0; max-height: 92vh; }
+  .scd-lb-img { max-height: 280px; }
+  .scd-lb-img-area { padding: 1rem 2.5rem; }
+}
+@media (max-width: 480px) {
+  .scd-banner-name { font-size: 18px; }
+  .scd-banner-avatar { width: 52px; height: 52px; font-size: 20px; }
+}

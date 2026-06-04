@@ -1,0 +1,209 @@
+/* ============================================================
+   studentworkplan.css — swp- prefix
+============================================================ */
+
+/* Club Switcher */
+.swp-club-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+.swp-club-tab {
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  border: 1.5px solid #e2e6ef;
+  background: #fff; color: #4a5568; transition: all 0.15s;
+}
+.swp-club-tab:hover { border-color: #2d5be3; color: #2d5be3; }
+.swp-club-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+
+/* Toolbar */
+.swp-toolbar {
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap;
+  animation: swp-slideUp 0.35s ease both;
+}
+.swp-search-wrap {
+  position: relative; display: flex;
+  align-items: center; flex: 1; min-width: 200px;
+}
+.swp-search-icon {
+  position: absolute; left: 12px;
+  width: 15px; height: 15px; color: #4a5568; pointer-events: none;
+}
+.swp-search-input {
+  width: 100%; padding: 10px 38px 10px 36px;
+  border: 1px solid #e8eaf0; border-radius: 10px;
+  font-size: 13.5px; font-family: inherit;
+  color: #1a1a2e; background: #fff; outline: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  transition: all 0.15s;
+}
+.swp-search-input::placeholder { color: #4a5568; }
+.swp-search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+.swp-search-clear {
+  position: absolute; right: 10px;
+  background: none; border: none; cursor: pointer;
+  color: #4a5568; display: flex; align-items: center;
+  justify-content: center; width: 20px; height: 20px;
+  border-radius: 50%; transition: all 0.15s;
+}
+.swp-search-clear:hover { color: #1a1a2e; background: #e8eaf0; }
+.swp-search-clear svg { width: 12px; height: 12px; }
+
+/* Plan List */
+.swp-plan-list {
+  display: flex; flex-direction: column; gap: 0;
+  background: #fff; border: 1px solid #e8eaf0;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  animation: swp-slideUp 0.38s ease both;
+}
+
+/* Plan Item — clickable card */
+.swp-plan-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 22px;
+  border-top: 1px solid #f1f5f9;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.swp-plan-item:first-child { border-top: none; }
+.swp-plan-item:hover { background: #f7faff; }
+.swp-plan-item:hover .swp-file-icon {
+  background: #dbeafe; border-color: #93c5fd;
+  transform: scale(1.04);
+}
+
+/* File Icon */
+.swp-file-icon {
+  width: 48px; height: 56px;
+  background: #eff6ff; border: 1.5px solid #bfdbfe;
+  border-radius: 10px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 4px; flex-shrink: 0; transition: all 0.15s;
+}
+.swp-file-icon svg { width: 20px; height: 20px; color: #2563eb; }
+.swp-file-type {
+  font-size: 7.5px; font-weight: 500;
+  color: #2563eb; letter-spacing: 0.5px; text-transform: uppercase;
+}
+
+/* Plan Info */
+.swp-plan-info { flex: 1; min-width: 0; }
+.swp-plan-name {
+  font-size: 14.5px; font-weight: 700; color: #1a1a2e;
+  margin-bottom: 5px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.swp-plan-meta {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: #4a5568; flex-wrap: wrap;
+}
+.swp-meta-filename {
+  font-size: 11px; color: #4a5568;
+  background: #f0f2f5; border: 1px solid #e8eaf0;
+  border-radius: 4px; padding: 1px 6px;
+  max-width: 200px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; display: inline-block;
+}
+.swp-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: #4a5568; flex-shrink: 0;
+}
+
+/* Actions — download only */
+.swp-plan-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.swp-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; font-family: inherit;
+  border-radius: 8px; padding: 8px 16px;
+  cursor: pointer; border: none; transition: all 0.15s;
+  white-space: nowrap; text-decoration: none;
+}
+.swp-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+.swp-btn-download {
+  background: #172D3D; color: #fff;
+  border: 1.5px solid #172D3D;
+}
+.swp-btn-download:hover {
+  background: #1e3d52; border-color: #1e3d52;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(23,45,61,0.3);
+}
+
+/* Skeleton */
+.swp-skeleton-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 22px; border-top: 1px solid #f1f5f9;
+}
+.swp-skeleton-item:first-child { border-top: none; }
+.swp-skeleton-icon {
+  width: 48px; height: 56px; border-radius: 10px;
+  background: linear-gradient(90deg, #f0f2f5 25%, #e8eaf0 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: swp-shimmer 1.4s infinite; flex-shrink: 0;
+}
+.swp-skeleton-body { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.swp-skeleton-line {
+  height: 12px; border-radius: 6px;
+  background: linear-gradient(90deg, #f0f2f5 25%, #e8eaf0 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: swp-shimmer 1.4s infinite; width: 60%;
+}
+.swp-skeleton-line.wide { width: 80%; height: 14px; }
+.swp-skeleton-btns {
+  width: 120px; height: 36px; border-radius: 8px;
+  background: linear-gradient(90deg, #f0f2f5 25%, #e8eaf0 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: swp-shimmer 1.4s infinite; flex-shrink: 0;
+}
+
+/* Empty State */
+.swp-empty-state {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 90px 24px; gap: 12px; text-align: center;
+}
+.swp-empty-icon {
+  width: 64px; height: 64px;
+  background: #f0f2f5; border: 1.5px dashed #cbd5e1;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 4px;
+}
+.swp-empty-icon svg { width: 28px; height: 28px; color: #4a5568; }
+.swp-empty-state h3 { font-size: 16px; font-weight: 700; color: #334155; }
+.swp-empty-state p  { font-size: 13.5px; color: #4a5568; }
+.swp-btn-reset {
+  font-size: 13px; font-weight: 600; font-family: inherit;
+  color: #2563eb; background: #eff6ff;
+  border: 1.5px solid #bfdbfe; border-radius: 8px;
+  padding: 8px 20px; cursor: pointer; transition: all 0.15s;
+}
+.swp-btn-reset:hover { background: #dbeafe; }
+
+/* Animations */
+@keyframes swp-slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes swp-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .swp-plan-item { flex-wrap: wrap; gap: 12px; }
+  .swp-plan-actions { width: 100%; margin-top: 2px; }
+  .swp-btn { flex: 1; justify-content: center; }
+}
+@media (max-width: 540px) {
+  .swp-toolbar { flex-direction: column; align-items: stretch; }
+  .swp-search-wrap { min-width: unset; }
+  .swp-plan-name { font-size: 13.5px; }
+}
+@media (max-width: 380px) {
+  .swp-plan-item { padding: 14px; }
+}
