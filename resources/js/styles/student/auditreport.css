@@ -452,15 +452,13 @@
   border-color: #cbd5e1 !important;
 }
 .ar-page .ar-dropdown {
-  position: absolute !important;
-  right: 0 !important;
-  top: calc(100% + 4px) !important;
+  position: fixed !important;
   background: #fff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 10px !important;
   box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
   min-width: 155px !important;
-  z-index: 200 !important;
+  z-index: 99999 !important;
   overflow: hidden !important;
   animation: arDropIn 0.13s ease !important;
 }
@@ -830,6 +828,7 @@
 .ar-page .ar-pdf-iframe {
   flex: 1 !important; width: 100% !important; border: none !important; display: block !important;
 }
+
 
 /* ══ ANIMATIONS ══ */
 @keyframes arFadeUp {

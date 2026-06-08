@@ -11,6 +11,7 @@ function formatExt(fileName) {
   const ext = fileName?.split('.').pop()?.toLowerCase();
   if (ext === 'pdf') return { label: 'PDF', cls: 'pdf' };
   if (['doc','docx'].includes(ext)) return { label: 'DOC', cls: 'doc' };
+  if (['xls','xlsx'].includes(ext)) return { label: 'XLS', cls: 'xls' };
   return { label: 'FILE', cls: 'doc' };
 }
 
@@ -114,9 +115,11 @@ export default function SecretaryReports() {
       'application/pdf',
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     ];
     if (!allowed.includes(file.type)) {
-      Swal.fire({ icon: 'error', title: 'Invalid file', text: 'Only PDF and Word files are allowed.' });
+      Swal.fire({ icon: 'error', title: 'Invalid file', text: 'Only PDF, Word and Excel files are allowed.' });
       return;
     }
     if (file.size > 30 * 1024 * 1024) {
@@ -360,7 +363,7 @@ export default function SecretaryReports() {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".pdf,.doc,.docx"
+            accept=".pdf,.doc,.docx,.xls,.xlsx"
             style={{ display: 'none' }}
             onChange={e => handleFileSelect(e.target.files[0])}
           />

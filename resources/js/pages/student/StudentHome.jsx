@@ -67,14 +67,17 @@ export default function StudentHome() {
         setCategories(cats);
         setStats(prev => ({ ...prev, categories: cats.length }));
       }
+      // NEW
       if (clubsRes.status === 'fulfilled') {
-        const list = clubsRes.value.data.data || clubsRes.value.data || [];
-        setClubs(list);
-        setFilteredClubs(list);
-        setStats(prev => ({
-          ...prev, clubs: list.length,
-          members: list.reduce((a, c) => a + (parseInt(c.members_count) || 0), 0),
-        }));
+          const data = clubsRes.value.data;
+          const list = data.clubs ?? data.data ?? data ?? [];
+          const uniqueMembers = data.unique_members_count ?? 0;
+          setClubs(list);
+          setFilteredClubs(list);
+          setStats(prev => ({
+              ...prev, clubs: list.length,
+              members: uniqueMembers,
+          }));
       }
       if (myClubsRes.status === 'fulfilled') {
         setMyClubs(myClubsRes.value.data.clubs || []);

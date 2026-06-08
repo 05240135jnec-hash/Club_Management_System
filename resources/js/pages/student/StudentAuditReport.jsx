@@ -33,6 +33,7 @@ export default function StudentAuditReport() {
   const [submitting, setSubmitting]       = useState(false);
   const [commentError, setCommentError]   = useState('');
   const [openMenuId, setOpenMenuId]       = useState(null);
+  const [menuPos, setMenuPos]             = useState({ top: 0, right: 0 });
   const [categories, setCategories]       = useState([]);
   const [clubs, setClubs]                 = useState([]);
   const [navScrolled, setNavScrolled]     = useState(false);
@@ -98,7 +99,10 @@ export default function StudentAuditReport() {
       ]);
       if (reportsRes.status === 'fulfilled') setReports(reportsRes.value.data.reports || []);
       if (catsRes.status   === 'fulfilled') setCategories(catsRes.value.data.data || catsRes.value.data || []);
-      if (clubsRes.status  === 'fulfilled') setClubs(clubsRes.value.data.data || clubsRes.value.data || []);
+      if (clubsRes.status  === 'fulfilled') {
+        const data = clubsRes.value.data;
+        setClubs(data.clubs ?? data.data ?? data ?? []);
+    }
     } catch { setReports([]); }
     setLoading(false);
   }
@@ -542,7 +546,13 @@ export default function StudentAuditReport() {
                     onClick={e => e.stopPropagation()}
                   >
                     <button className="ar-menu-btn"
-                      onClick={() => setOpenMenuId(openMenuId === report.id ? null : report.id)}>
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setMenuPos({ top: rect.top - 5, right: window.innerWidth - rect.right });
+                        setOpenMenuId(openMenuId === report.id ? null : report.id);
+                    }}
+                    >
                       <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
                         <circle cx="12" cy="5" r="1.5"/>
                         <circle cx="12" cy="12" r="1.5"/>
@@ -550,7 +560,7 @@ export default function StudentAuditReport() {
                       </svg>
                     </button>
                     {openMenuId === report.id && (
-                      <div className="ar-dropdown">
+                      <div className="ar-dropdown" style={{ position: 'fixed', top: menuPos.top, right: menuPos.right }}>
                         <a href={report.file_url} target="_blank" rel="noreferrer"
                           className="ar-dd-item" onClick={() => setOpenMenuId(null)}>
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="13" height="13">

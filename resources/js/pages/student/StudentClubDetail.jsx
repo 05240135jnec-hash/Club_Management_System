@@ -69,7 +69,8 @@ export default function StudentClubDetail() {
       ]);
       if (catsRes.status === 'fulfilled') setCategories(catsRes.value.data.data || catsRes.value.data || []);
       if (clubsRes.status === 'fulfilled') {
-        const list = clubsRes.value.data.data || clubsRes.value.data || [];
+        const data = clubsRes.value.data;
+        const list = data.clubs ?? data.data ?? data ?? [];
         setClubs(list);
         const found = list.find(c => String(c.id) === String(id));
         setClub(found || null);

@@ -22,7 +22,14 @@ class ClubController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return response()->json($clubs);
+        $uniqueMembersCount = ClubMember::where('status', 'active')
+            ->distinct('user_id')
+            ->count('user_id');
+
+        return response()->json([
+            'clubs'                => $clubs,
+            'unique_members_count' => $uniqueMembersCount,
+        ]);
     }
 
     // GET clubs grouped by category

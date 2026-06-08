@@ -11,6 +11,7 @@ function formatExt(fileName) {
   const ext = fileName?.split('.').pop()?.toLowerCase();
   if (ext === 'pdf') return { label: 'PDF', cls: 'pdf' };
   if (['doc','docx'].includes(ext)) return { label: 'DOC', cls: 'doc' };
+  if (['xls','xlsx'].includes(ext)) return { label: 'XLS', cls: 'xls' };
   return { label: 'FILE', cls: 'doc' };
 }
 
@@ -38,7 +39,7 @@ export default function AdvisorReports() {
 
   useEffect(() => {
     fetchReports();
-    const interval = setInterval(fetchReports, 30000);
+    const interval = setInterval(fetchReports, 300000);
     return () => clearInterval(interval);
   }, []);
 
@@ -117,7 +118,7 @@ export default function AdvisorReports() {
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     ];
     if (!allowed.includes(file.type)) {
-      Swal.fire({ icon: 'error', title: 'Invalid file', text: 'Only PDF and Word files are allowed.' });
+      Swal.fire({ icon: 'error', title: 'Invalid file', text: 'Only PDF, Word and Excel files are allowed.' });
       return;
     }
     if (file.size > 30 * 1024 * 1024) {
@@ -366,7 +367,7 @@ export default function AdvisorReports() {
                 </svg>
               </div>
               <div className="rpt-drop-title">Click to upload or drag &amp; drop</div>
-              <div className="rpt-drop-sub">PDF, Word,</div>
+              <div className="rpt-drop-sub">PDF, Word, Excel</div>
               <div className="rpt-drop-limit">MAX FILE SIZE: 30MB</div>
             </div>
           ) : (
@@ -541,13 +542,8 @@ export default function AdvisorReports() {
       {/* 3 DOT MENU PORTAL */}
       {openMenuId && currentReport && createPortal(
         <div className="rpt-menu-dropdown" style={{ top: menuPos.top, right: menuPos.right, position: 'fixed' }}>
-          <a
-            href={currentReport.file_url}
-            target="_blank"
-            rel="noreferrer"
-            className="rpt-menu-item"
-            onClick={() => setOpenMenuId(null)}
-          >
+          <a href={currentReport.file_url} target="_blank" rel="noreferrer"
+            className="rpt-menu-item" onClick={() => setOpenMenuId(null)}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
               <circle cx="12" cy="12" r="3"/>

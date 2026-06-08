@@ -172,7 +172,10 @@ export default function StudentAnnouncements() {
       ]);
       if (a.status  === 'fulfilled') setAnnouncements(a.value.data.announcements || []);
       if (c.status  === 'fulfilled') setCategories(c.value.data.data || c.value.data || []);
-      if (cl.status === 'fulfilled') setClubs(cl.value.data.data || cl.value.data || []);
+      if (cl.status === 'fulfilled') {
+        const data = cl.value.data;
+        setClubs(data.clubs ?? data.data ?? data ?? []);
+    }
     } catch { setAnnouncements([]); }
     setLoading(false);
   }

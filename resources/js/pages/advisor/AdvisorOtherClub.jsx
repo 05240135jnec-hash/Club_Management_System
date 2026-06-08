@@ -64,7 +64,7 @@ export default function AdvisorOtherClub() {
       ]);
 
       const clubList = clubsRes.status === 'fulfilled'
-        ? (clubsRes.value.data?.data ?? clubsRes.value.data ?? []) : [];
+        ? (clubsRes.value.data?.clubs ?? clubsRes.value.data?.data ?? clubsRes.value.data ?? []) : [];
       const catList  = catsRes.status === 'fulfilled'
         ? (catsRes.value.data?.data  ?? catsRes.value.data  ?? []) : [];
 

@@ -18,6 +18,7 @@ export default function PublicHome() {
   const navigate = useNavigate();
 
   const [clubs,        setClubs]        = useState([]);
+  const [uniqueMembers, setUniqueMembers] = useState(0);
   const [categories,   setCategories]   = useState([]);
   const [filtered,     setFiltered]     = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
@@ -42,6 +43,7 @@ export default function PublicHome() {
         axios.get('/api/categories'),
       ]);
       const clubList = clubRes.data.clubs ?? clubRes.data ?? [];
+      setUniqueMembers(clubRes.data.unique_members_count ?? 0);
       const catList  = catRes.data.categories ?? catRes.data ?? [];
       setClubs(clubList);
       setFiltered(clubList);
@@ -179,7 +181,6 @@ export default function PublicHome() {
           </div>
           <button className="pub-login-btn" onClick={() => navigate('/login')}>Login</button>
 
-          {/* HAMBURGER */}
           <div className="pub-hamburger-wrap" ref={hamRef}>
             <button
               className={`pub-hamburger-btn ${hamOpen ? 'open' : ''}`}
@@ -189,10 +190,8 @@ export default function PublicHome() {
               <span/><span/><span/>
             </button>
 
-            {/* FULL DROPDOWN PANEL: clubs LEFT + categories RIGHT */}
             {hamOpen && (
               <div className="pub-ham-panel">
-                {/* LEFT: category list */}
                 <div className="pub-ham-cats-side">
                   <div className="pub-ham-side-title">CATEGORIES</div>
                   {categories.map(cat => {
@@ -211,10 +210,8 @@ export default function PublicHome() {
                   })}
                 </div>
 
-                {/* DIVIDER */}
                 <div className="pub-ham-divider" />
 
-                {/* RIGHT: club cards */}
                 <div className="pub-ham-clubs-side">
                   {selectedCat ? (
                     <>
@@ -240,7 +237,6 @@ export default function PublicHome() {
                   )}
                 </div>
 
-                {/* LOGIN BUTTON — visible on mobile only */}
                 <div className="pub-ham-login-wrap">
                   <button className="pub-ham-login-btn" onClick={() => { navigate('/login'); setHamOpen(false); }}>
                     Login to your account →
@@ -270,7 +266,7 @@ export default function PublicHome() {
           </div>
           <div className="pub-stats-bar">
             <div className="pub-sb"><div className="pub-sb-n">{clubs.length || 0}</div><div className="pub-sb-l">Total Clubs</div></div>
-            <div className="pub-sb"><div className="pub-sb-n">{clubs.reduce((s,c) => s+(c.members_count??0),0)}</div><div className="pub-sb-l">Members</div></div>
+            <div className="pub-sb"><div className="pub-sb-n">{uniqueMembers}</div><div className="pub-sb-l">Members</div></div>
             <div className="pub-sb"><div className="pub-sb-n">{categories.length || 0}</div><div className="pub-sb-l">Categories</div></div>
           </div>
         </div>

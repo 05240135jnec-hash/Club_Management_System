@@ -98,7 +98,7 @@ class ReportController extends Controller
             'type'     => 'required|string|max:100',
             'sent_to'  => 'required_unless:is_audit,true|in:dsa,me,advisor',
             'is_audit' => 'boolean',
-            'file'     => 'required|file|mimes:pdf,doc,docx',
+            'file'     => 'required|file|mimes:pdf,doc,docx,xls,xlsx',
         ]);
 
         $file = $request->file('file');
@@ -141,7 +141,7 @@ class ReportController extends Controller
             'type'     => 'required|string|max:100',
             'sent_to'  => 'required_unless:is_audit,true|in:dsa,me,advisor',
             'is_audit' => 'boolean',
-            'file'     => 'required|file|mimes:pdf,doc,docx',
+            'file'     => 'required|file|mimes:pdf,doc,docx,xls,xlsx',
         ]);
 
         $file = $request->file('file');

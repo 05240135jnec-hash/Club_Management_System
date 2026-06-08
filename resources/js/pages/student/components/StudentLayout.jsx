@@ -452,7 +452,7 @@ export default function StudentLayout({ children, pageTitle, pageSubtitle }) {
                 <div className="sl-pm-form">
                   {[
                     { label:'Full Name',  key:'name',      type:'text',  required:true  },
-                    { label:'Email',      key:'email',     type:'email', required:true  },
+                    { label:'Email',      key:'email',     type:'email', required:true, disabled:true  },
                     { label:'Student ID', key:'studentId', type:'text',  required:false },
                     { label:'Course',     key:'course',    type:'text',  required:false },
                     { label:'Year',       key:'year',      type:'text',  required:false },
@@ -460,7 +460,10 @@ export default function StudentLayout({ children, pageTitle, pageSubtitle }) {
                     <div className="sl-pm-form-group" key={key}>
                       <label className="sl-pm-label">{label} {required && <span style={{color:'#e53e3e'}}>*</span>}</label>
                       <input className="sl-pm-input" type={type} value={editForm[key]}
-                        onChange={e => setEditForm(f=>({...f,[key]:e.target.value}))} maxLength={120} />
+                        onChange={e => setEditForm(f=>({...f,[key]:e.target.value}))} maxLength={120}
+                        disabled={required === false ? false : key === 'email' ? true : false}
+                        style={key === 'email' ? { opacity: 0.6, cursor: 'not-allowed', background: '#f1f5f9' } : {}}
+                      />
                     </div>
                   ))}
                   <MsgBox msg={profileMsg} />

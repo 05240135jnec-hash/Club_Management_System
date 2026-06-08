@@ -67,13 +67,15 @@ export default function AdvisorHome() {
         setStats(prev => ({ ...prev, categories: cats.length }));
       }
       if (clubsRes.status === 'fulfilled') {
-        const list = clubsRes.value.data.data || clubsRes.value.data || [];
+        const data = clubsRes.value.data;
+        const list = data.clubs ?? data.data ?? data ?? [];
+        const uniqueMembers = data.unique_members_count ?? 0;
         setClubs(list); setFilteredClubs(list);
         setStats(prev => ({
-          ...prev, clubs: list.length,
-          members: list.reduce((a, c) => a + (parseInt(c.members_count) || 0), 0),
+            ...prev, clubs: list.length,
+            members: uniqueMembers,
         }));
-      }
+    }
       if (myClubRes.status === 'fulfilled') {
         const d = myClubRes.value.data;
         if (d && d.name) setMyClub(d);

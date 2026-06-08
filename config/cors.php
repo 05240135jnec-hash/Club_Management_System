@@ -13,6 +13,9 @@ return [
         'http://127.0.0.1:5173',
         'http://10.201.220.251:8000',
         'http://10.201.220.251:5173',
+        'https://subwoofer-startling-swampland.ngrok-free.app',
+        'https://subwoofer-startling-swampland.ngrok-free.dev',
+        'https://magnitude-scrap-factoid.ngrok-free.dev',
     ],
 
     'allowed_origins_patterns' => [],
